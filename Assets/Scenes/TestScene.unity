@@ -285,6 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1eb0aba7aa9afcc41840dde54af30e22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CardManager
+  cardTypes: {fileID: 4900000, guid: 67e0a3b5fbc3f9f4c8222d812b2d1fb3, type: 3}
   cardPrefab: {fileID: 2649469423982060498, guid: 316513320e2ccc5448b0309da7f51524, type: 3}
 --- !u!4 &1937951095
 Transform:

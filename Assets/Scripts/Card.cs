@@ -11,10 +11,9 @@ public class Card : MonoBehaviour
     private int _points;
     private int _mults;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         card = GetComponentInChildren<SpriteRenderer>();
-        card.sprite = cards.GetSprite("Ac");
     }
 
     // Update is called once per frame
@@ -36,5 +35,7 @@ public class Card : MonoBehaviour
         _suit = suit;
         _points = points;
         _mults = mults;
+        Debug.Log(_rank + _suit);
+        card.sprite = cards.GetSprite(_rank + _suit);
     }
 }

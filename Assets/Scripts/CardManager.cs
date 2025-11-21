@@ -4,16 +4,17 @@ public class CardManager : MonoBehaviour
 {
     public TextAsset cardTypes;
     public Card cardPrefab;
+    JSONNode cardJSONData;
     void test()
     {
         Card meow = Instantiate(cardPrefab) as Card;
-        meow.sayHi(100);
+        meow.SetCard("2", "c", cardJSONData["ranks"]["2"]["points"], cardJSONData["ranks"]["2"]["mults"]);
     }
 
     void Start()
     {
         // test();
-        var woaw = JSON.Parse(cardTypes.text);
-        Debug.Log(woaw["ranks"]);
+        cardJSONData = JSON.Parse(cardTypes.text);
+        test();
     }
 }
