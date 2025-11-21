@@ -1,7 +1,8 @@
 using UnityEngine;
-
+using SimpleJSON;
 public class CardManager : MonoBehaviour
 {
+    public TextAsset cardTypes;
     public Card cardPrefab;
     void test()
     {
@@ -11,6 +12,8 @@ public class CardManager : MonoBehaviour
 
     void Start()
     {
-        test();
+        // test();
+        var woaw = JSON.Parse(cardTypes.text);
+        Debug.Log(woaw["ranks"]);
     }
 }
