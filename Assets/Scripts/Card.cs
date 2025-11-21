@@ -1,15 +1,20 @@
 using UnityEngine;
-using System;
+using UnityEngine.U2D;
+
 public class Card : MonoBehaviour
 {
-    private String rank;
-    private String suit;
-    private int points;
-    private int mults;
+    public SpriteAtlas cards;
+    private SpriteRenderer card;
+    private string _rank;
+    private string _suit;
+
+    private int _points;
+    private int _mults;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        card = GetComponentInChildren<SpriteRenderer>();
+        card.sprite = cards.GetSprite("Ac");
     }
 
     // Update is called once per frame
@@ -20,8 +25,16 @@ public class Card : MonoBehaviour
 
     public void sayHi(int x)
     {
-        points = x;
+        _points = x;
         Debug.Log("Hiiiii");
-        Debug.Log(points);
+        Debug.Log(_points);
+    }
+
+    public void SetCard(string rank, string suit, int points, int mults)
+    {
+        _rank = rank;
+        _suit = suit;
+        _points = points;
+        _mults = mults;
     }
 }

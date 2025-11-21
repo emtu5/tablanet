@@ -1,20 +1,20 @@
 {
-    "cards":
-    [
-        {"rank": "2", "name": "2", "value": 2, "points": 2, "mults": 0},
-        {"rank": "3", "name": "3",  "value": 2, "points": 3, "mults": 0},
-        {"rank": "4", "name": "4",  "value": 2, "points": 4, "mults": 0},
-        {"rank": "5", "name": "5",  "value": 2, "points": 5, "mults": 0},
-        {"rank": "6", "name": "6",  "value": 2, "points": 6, "mults": 0},
-        {"rank": "7", "name": "7",  "value": 2, "points": 7, "mults": 0},
-        {"rank": "8", "name": "8",  "value": 2, "points": 8, "mults": 0},
-        {"rank": "9", "name": "9",  "value": 2, "points": 9, "mults": 0},
-        {"rank": "10", "name": "10", "value": 2, "points": 10, "mults": 1},
-        {"rank": "J", "name": "Jack",  "value": 2, "points": 12, "mults": 1},
-        {"rank": "Q", "name": "Queen",  "value": 2, "points": 13, "mults": 1},
-        {"rank": "K", "name": "King",  "value": 2, "points": 14, "mults": 1},
-        {"rank": "A", "name": "Ace",  "value": [1, 11], "points": [1, 11], "mults": 1}
-    ],
+    "ranks":
+    {
+        "2": {"name": "2", "value": 2, "points": 2, "mults": 0},
+        "3": {"name": "3",  "value": 2, "points": 3, "mults": 0},
+        "4": {"name": "4",  "value": 2, "points": 4, "mults": 0},
+        "5": {"name": "5",  "value": 2, "points": 5, "mults": 0},
+        "6": {"name": "6",  "value": 2, "points": 6, "mults": 0},
+        "7": {"name": "7",  "value": 2, "points": 7, "mults": 0},
+        "8": {"name": "8",  "value": 2, "points": 8, "mults": 0},
+        "9": {"name": "9",  "value": 2, "points": 9, "mults": 0},
+        "10": { "name": "10", "value": 2, "points": 10, "mults": 1},
+        "J": {"name": "Jack",  "value": 2, "points": 12, "mults": 1},
+        "Q": {"name": "Queen",  "value": 2, "points": 13, "mults": 1},
+        "K": {"name": "King",  "value": 2, "points": 14, "mults": 1},
+        "A": {"name": "Ace",  "value": [1, 11], "points": [1, 11], "mults": 1}
+    },
     "suits":
     [
         {"short": "h", "name": "Hearts"},
