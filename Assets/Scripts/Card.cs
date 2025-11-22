@@ -5,10 +5,13 @@ public class Card : MonoBehaviour
 {
     public SpriteAtlas cards;
     private SpriteRenderer card;
+    [SerializeField]
     private string _rank;
+    [SerializeField]
     private string _suit;
-
+    [SerializeField]
     private int _points;
+    [SerializeField]
     private int _mults;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
