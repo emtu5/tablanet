@@ -17,7 +17,8 @@ public class CardManager : MonoBehaviour
     }
     void Start()
     {
-        float woaw = 0f;
+        float woaw = -2f;
+        int sort = 0;
         foreach(JSONNode r in cardJSONData["ranks"])
         {
             foreach(JSONNode s in cardJSONData["suits"])
@@ -25,7 +26,10 @@ public class CardManager : MonoBehaviour
                 Card meow = Instantiate(cardPrefab) as Card;
                 meow.SetCard(r["id"], s["id"], r["points"], r["mults"]);
                 meow.transform.position = new Vector3(woaw, woaw, 0);
+                meow.GetComponentInChildren<SpriteRenderer>().sortingOrder = sort;
                 woaw += 0.1f;
+                sort += 1;
+
             }
         }
         // test();
