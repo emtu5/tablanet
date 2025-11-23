@@ -39,6 +39,21 @@ public class Card : MonoBehaviour
         _points = points;
         _mults = mults;
         Debug.Log(_rank + _suit);
+        
+    }
+
+    public void SetSprite()
+    {
         card.sprite = cards.GetSprite(_rank + _suit);
+    }
+    
+    public void SetSprite(string name)
+    {
+        card.sprite = cards.GetSprite(name);
+    }
+
+    public string GetName()
+    {
+        return _rank + _suit;
     }
 }
