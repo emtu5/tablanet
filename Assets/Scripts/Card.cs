@@ -37,9 +37,7 @@ public class Card : MonoBehaviour
         _rank = rank;
         _suit = suit;
         _points = points;
-        _mults = mults;
-        Debug.Log(_rank + _suit);
-        
+        _mults = mults;   
     }
 
     public void SetSprite()

@@ -46,6 +46,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Card
   cards: {fileID: 100100200, guid: ed8509eb8d98c3043ade5f8d28176403, type: 3}
+  _rank: 
+  _suit: 
+  _points: 0
+  _mults: 0
 --- !u!1 &6004765727817465859
 GameObject:
   m_ObjectHideFlags: 0
@@ -73,8 +77,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1954079774198406652}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -125,14 +129,14 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1160785520537796100, guid: b0f2ab655c226df4caba9de56250f460, type: 3}
+  m_Sprite: {fileID: -2922113337684369405, guid: b59e18568024ca443b714c29b81091fc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 5.26, y: 7.5240808}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0

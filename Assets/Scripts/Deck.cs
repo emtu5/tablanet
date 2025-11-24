@@ -11,7 +11,7 @@ public class Deck : MonoBehaviour
     public Card cardPrefab;
     public List<Card> deck;
 
-    float basePosition = -2f;
+    float basePosition = 0f;
     float deckStep = 0.02f;
     // https://stackoverflow.com/questions/273313/randomize-a-listt
 
@@ -23,27 +23,20 @@ public class Deck : MonoBehaviour
 
     void InitializeDeck()
     {
-        float cardPosition = basePosition;
-        int sort = 0;
         foreach(JSONNode r in cardJSONData["ranks"])
         {
             foreach(JSONNode s in cardJSONData["suits"])
             {
                 Card c = Instantiate(cardPrefab, gameObject.transform) as Card;
                 c.SetCard(r["id"], s["id"], r["points"], r["mults"]);
-                c.SetSprite("BackRed");
-                c.transform.position = new Vector3(cardPosition, cardPosition, 0);
-                c.GetComponentInChildren<SpriteRenderer>().sortingOrder = sort;
+                c.SetSprite();
                 deck.Add(c);
-                cardPosition += deckStep;
-                sort += 1;
             }
         }
     }
 
     void ShuffleDeck()
     {
-        // deck.Shuffle(); // pray
         int n = deck.Count;
         while (n > 1) {
             n--;
@@ -54,21 +47,31 @@ public class Deck : MonoBehaviour
         }
     }
 
+    void LayerCards()
+    {
+        float cardPosition = basePosition;
+        int sort = 0;
+        foreach (Card c in deck)
+        {
+            c.transform.localPosition = new Vector3(cardPosition, cardPosition, 0);
+            c.GetComponentInChildren<SpriteRenderer>().sortingOrder = sort;
+            cardPosition += deckStep;
+            sort += 1;
+        }
+    }
 
     void Awake()
     {
         InitializeDeckData();
     }
 
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void CreateDeck()
     {
         InitializeDeck();
         ShuffleDeck();
-        foreach (Card card in deck)
-        {
-            Debug.Log(card.GetName());
-        }
+        LayerCards();
     }
 
     // Update is called once per frame

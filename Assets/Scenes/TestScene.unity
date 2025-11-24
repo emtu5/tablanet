@@ -256,6 +256,39 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &479204790 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2210858135445075434, guid: a502b750b2fab8b459ed95b4061ca26e, type: 3}
+  m_PrefabInstance: {fileID: 8850196872639524070}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aed44a0b70044144fa00eff179beced2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CardHolder
+--- !u!114 &879095885 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3606925740286217975, guid: 03ee1501751e96b42b622e393f026539, type: 3}
+  m_PrefabInstance: {fileID: 9027497943011085385}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cae237425e3ae3d41ac40e6ed1c41854, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Deck
+--- !u!114 &1459861054 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2210858135445075434, guid: a502b750b2fab8b459ed95b4061ca26e, type: 3}
+  m_PrefabInstance: {fileID: 1794141417}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aed44a0b70044144fa00eff179beced2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CardHolder
 --- !u!1001 &1794141417
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -270,11 +303,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1811104269680140002, guid: a502b750b2fab8b459ed95b4061ca26e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.80034
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 1811104269680140002, guid: a502b750b2fab8b459ed95b4061ca26e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.44431
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 1811104269680140002, guid: a502b750b2fab8b459ed95b4061ca26e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -312,6 +345,10 @@ PrefabInstance:
       propertyPath: cardSlots
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 2210858135445075434, guid: a502b750b2fab8b459ed95b4061ca26e, type: 3}
+      propertyPath: totalSlots
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -346,8 +383,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1eb0aba7aa9afcc41840dde54af30e22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CardManager
-  cardTypes: {fileID: 4900000, guid: 67e0a3b5fbc3f9f4c8222d812b2d1fb3, type: 3}
-  cardPrefab: {fileID: 2649469423982060498, guid: 316513320e2ccc5448b0309da7f51524, type: 3}
+  cardHolders:
+  - {fileID: 479204790}
+  - {fileID: 1459861054}
+  deck: {fileID: 879095885}
 --- !u!4 &1937951095
 Transform:
   m_ObjectHideFlags: 0
@@ -377,11 +416,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1811104269680140002, guid: a502b750b2fab8b459ed95b4061ca26e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.05001
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 1811104269680140002, guid: a502b750b2fab8b459ed95b4061ca26e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.60541
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 1811104269680140002, guid: a502b750b2fab8b459ed95b4061ca26e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -419,6 +458,10 @@ PrefabInstance:
       propertyPath: cardSlots
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 2210858135445075434, guid: a502b750b2fab8b459ed95b4061ca26e, type: 3}
+      propertyPath: totalSlots
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -438,11 +481,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8144381885771673281, guid: 03ee1501751e96b42b622e393f026539, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.80034
+      value: 6.08
       objectReference: {fileID: 0}
     - target: {fileID: 8144381885771673281, guid: 03ee1501751e96b42b622e393f026539, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.44431
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8144381885771673281, guid: 03ee1501751e96b42b622e393f026539, type: 3}
       propertyPath: m_LocalPosition.z
