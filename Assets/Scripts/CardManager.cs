@@ -12,7 +12,9 @@ public class CardManager : MonoBehaviour
         {
             foreach(CardSlot cs in ch.cardSlots)
             {
+                if (transform.childCount > 0) continue;
                 Card dealtCard = deck.deck[deck.deck.Count - 1];
+                dealtCard.selectable = true;
                 deck.deck.RemoveAt(deck.deck.Count - 1);
                 dealtCard.transform.parent = cs.transform;
                 dealtCard.transform.localPosition = new Vector3(0, 0, 0);

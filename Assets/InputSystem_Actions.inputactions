@@ -998,12 +998,12 @@
             "actions": [
                 {
                     "name": "Click",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "6d3e0e0c-45f6-411d-b9a5-b672b723b618",
-                    "expectedControlType": "",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Hover",
@@ -1018,17 +1018,6 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "853a9b68-8756-46c8-b88b-c120d7914bc6",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Click",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "a0b02df6-f94f-4f44-8b35-fbd57bbfc63d",
                     "path": "<Mouse>/position",
                     "interactions": "",
@@ -1037,6 +1026,39 @@
                     "action": "Hover",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "MouseClick",
+                    "id": "0096d35a-efbc-40e2-9e66-09c19eb8c9eb",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Click",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "36162d1f-f25c-4a33-9056-0fc90828777d",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "a955583a-36c6-481c-87cc-0eb2ec7beab0",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }

@@ -13,7 +13,9 @@ public class Card : MonoBehaviour
     private int _points;
     [SerializeField]
     private int _mults;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public bool selectable = false;
+    private bool _selected = false;
+
     void Awake()
     {
         card = GetComponentInChildren<SpriteRenderer>();
@@ -23,13 +25,6 @@ public class Card : MonoBehaviour
     void Update()
     {
         
-    }
-
-    public void sayHi(int x)
-    {
-        _points = x;
-        Debug.Log("Hiiiii");
-        Debug.Log(_points);
     }
 
     public void SetCard(string rank, string suit, int points, int mults)
@@ -53,5 +48,10 @@ public class Card : MonoBehaviour
     public string GetName()
     {
         return _rank + _suit;
+    }
+
+    public void Select()
+    {
+        _selected = !_selected;
     }
 }

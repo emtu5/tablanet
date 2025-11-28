@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class InputHandler : MonoBehaviour
 {
     private Camera _mainCamera;
-
+    private Transform _prevHover, _nextHover;
     void Awake()
     {
         _mainCamera = Camera.main;
@@ -13,8 +13,40 @@ public class InputHandler : MonoBehaviour
     public void OnMouseEnter(InputAction.CallbackContext context)
     {
         var rayHit = Physics2D.GetRayIntersection(_mainCamera.ScreenPointToRay(context.ReadValue<Vector2>()));
-        if (!rayHit.collider) return;
+        
+        _prevHover = _nextHover;
+        Debug.LogFormat("previous: {0} / next: {1}", _prevHover, _nextHover);
+        _nextHover = rayHit.collider ? rayHit.collider.transform : null;
+        if (_nextHover)
+        {
+            if (_nextHover.parent.GetComponent<Card>().selectable)
+            {
+                _nextHover.GetComponent<SpriteRenderer>().color = new Color(0.95f, 0.95f, 0.6f);
+            }
+            if (_prevHover && _nextHover && _prevHover.GetInstanceID() != _nextHover.GetInstanceID())
+            {
+                _prevHover.GetComponent<SpriteRenderer>().color = Color.white;
+            }
+        }
+        else if (_prevHover)
+        {
+            _prevHover.GetComponent<SpriteRenderer>().color = Color.white;
+        }
+    }
 
-        Debug.Log(rayHit.collider.gameObject.name);
+    public void OnClick(InputAction.CallbackContext context)
+    {
+        if (!context.started) return;
+        var rayHit = Physics2D.GetRayIntersection(_mainCamera.ScreenPointToRay(context.ReadValue<Vector2>()));
+        if (!rayHit.collider) return;
+        GameObject test = rayHit.collider.gameObject.transform.parent.gameObject;
+        if (test.CompareTag("Card"))
+        {
+            Card c = test.GetComponent<Card>();
+            if (c.selectable)
+            {
+                c.Select();
+            }
+        }
     }
 }
