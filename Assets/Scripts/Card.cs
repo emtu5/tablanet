@@ -53,5 +53,13 @@ public class Card : MonoBehaviour
     public void Select()
     {
         _selected = !_selected;
+        if (_selected)
+        {
+            transform.localPosition = new Vector3(0f, 0.2f, 0f);
+        }
+        else
+        {
+            transform.localPosition = new Vector3(0f, 0f, 0f);
+        }
     }
 }
