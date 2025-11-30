@@ -15,7 +15,7 @@ public class InputHandler : MonoBehaviour
         var rayHit = Physics2D.GetRayIntersection(_mainCamera.ScreenPointToRay(context.ReadValue<Vector2>()));
         
         _prevHover = _nextHover;
-        Debug.LogFormat("previous: {0} / next: {1}", _prevHover, _nextHover);
+        // Debug.LogFormat("previous: {0} / next: {1}", _prevHover, _nextHover);
         _nextHover = rayHit.collider ? rayHit.collider.transform : null;
         if (_nextHover)
         {

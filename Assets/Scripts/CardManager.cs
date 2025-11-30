@@ -32,4 +32,16 @@ public class CardManager : MonoBehaviour
         deck.CreateDeck();
         DealCards();
     }
+
+    public void PlayHand()
+    {
+        foreach (CardHolder ch in cardHolders)
+        {
+            foreach(CardSlot cs in ch.cardSlots)
+            {
+                Card card = cs.GetComponentInChildren<Card>();
+                Debug.Log(card.selected);
+            }
+        }
+    }
 }

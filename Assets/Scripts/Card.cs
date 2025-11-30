@@ -14,7 +14,7 @@ public class Card : MonoBehaviour
     [SerializeField]
     private int _mults;
     public bool selectable = false;
-    private bool _selected = false;
+    public bool selected = false;
 
     void Awake()
     {
@@ -52,8 +52,8 @@ public class Card : MonoBehaviour
 
     public void Select()
     {
-        _selected = !_selected;
-        if (_selected)
+        selected = !selected;
+        if (selected)
         {
             transform.localPosition = new Vector3(0f, 0.2f, 0f);
         }
