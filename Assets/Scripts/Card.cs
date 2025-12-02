@@ -9,7 +9,7 @@ public class Card : MonoBehaviour
     public string suit {get; private set;}
     public int points {get; private set;}
     public int mults {get; private set;}
-    public int value {get; private set;}
+    public int value;
     public bool selectable = false;
     public bool selected = false;
 
@@ -24,7 +24,7 @@ public class Card : MonoBehaviour
         
     }
 
-    public void SetCard(string _rank, string _suit, int _points, int _mults, int _value)
+    public void SetCard(string _rank, string _suit, int _value, int _points, int _mults)
     {
         rank = _rank;
         suit = _suit;

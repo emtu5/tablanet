@@ -6,7 +6,7 @@ using System.Linq;
 public class Scoring
 {
     // https://stackoverflow.com/a/3098381
-    IEnumerable<IEnumerable<T>> CartesianProduct<T>(IEnumerable<IEnumerable<T>> sequences)
+    static IEnumerable<IEnumerable<T>> CartesianProduct<T>(IEnumerable<IEnumerable<T>> sequences)
     {
         IEnumerable<IEnumerable<T>> emptyProduct = new[] { Enumerable.Empty<T>()};
         return sequences.Aggregate(
@@ -18,40 +18,45 @@ public class Scoring
             );
     }
 
-    void GeneratePermutations<T>(T[] array, int size, List<T[]> result)
+    static IEnumerable<IEnumerable<T>> GetPermutations<T>(IEnumerable<T> list, int length)
     {
-        if (size == 1)
-        {
-            result.Add((T[])array.Clone());
-            return;
-        }
+        if (length == 1) return list.Select(t => new T[] { t });
 
-        for (int i = 0; i < size; i++)
-        {
-            GeneratePermutations(array, size - 1, result);
-
-            if (size % 2 == 1)
-            {
-                Swap(ref array[0], ref array[size - 1]);
-            }
-            else
-            {
-                Swap(ref array[i], ref array[size - 1]);
-            }
-        }
+        return GetPermutations(list, length - 1)
+            .SelectMany(t => list.Where(e => !t.Contains(e)),
+                (t1, t2) => t1.Concat(new T[] { t2 }));
     }
 
-    void Swap<T>(ref T a, ref T b)
+    static List<int> DivideIntoSubsets(List<int> nums, int total)
     {
-        T temp = a;
-        a = b;
-        b = temp;
-    }
-
-    List<List<int>> DivideIntoSubsets(List<int> nums)
-    {
+        // current code is abysmally unoptimized, but I don't care right now
         // get all permutations
-        // for each permutation, check manually if it's subsets listed in order
+        // foreach (int elem in nums) {
+        //     Debug.Log(elem);
+        // }
+        // Debug.LogFormat("length: {0}", nums.Count);
+        var allPerms = GetPermutations(nums, nums.Count);
+        foreach (var perm in allPerms) {
+            // for each permutation, check manually if it's subsets listed in order
+            int currentTotal = 0;
+            foreach(int elem in perm) {
+                currentTotal += elem;
+                if (currentTotal == total) {
+                    currentTotal = 0;
+                }
+                else if (currentTotal > total) {
+                    break;
+                }
+            }
+            if (currentTotal == 0) {
+                foreach (int elem in perm) {
+                    Debug.Log(elem);
+                }
+                return perm.ToList();
+            }
+        }
+        
+        
         // if it is, it can divide, yay
         // otherwise, over
         return null;
@@ -60,9 +65,17 @@ public class Scoring
     static public bool CheckHand(IEnumerable<List<int>> cards, int mainCard)
     {
         // get cartesian product of all card values
-        // for each product, divide into subsets
-        // if it can divide, hand is valid, return valid set
-        // otherwise, error
+        var allPossibleInitialValues = CartesianProduct(cards);
+        foreach (var product in allPossibleInitialValues) {
+            // for each product, divide into subsets
+            // if it can divide, hand is valid, return valid set
+            // otherwise, error
+            var result = DivideIntoSubsets(product.ToList(), mainCard);
+            if (result != null) {
+                Debug.Log("HAND THAT SCORES!!!");
+                return true;
+            }
+        }
         return false;
     }
 }

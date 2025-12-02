@@ -75,10 +75,10 @@ public class CardManager : MonoBehaviour
         }
 
         foreach(List<Card> row in otherCards) {
-            var values = row.Select(x => new List<int>(){x.value});
+            var values = row.Select(x => new List<int>(){x.value}).ToList();
             // var values = row.Select(x => new List<int>(){x.value});
-            Debug.Log(values);
-            Scoring.CheckHand(values, single.value);
+            Debug.Log("doing a row");
+            if (values.Count > 0) Scoring.CheckHand(values, single.value);
         }
     }
 }
