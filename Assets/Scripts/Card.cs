@@ -5,14 +5,11 @@ public class Card : MonoBehaviour
 {
     public SpriteAtlas cards;
     private SpriteRenderer card;
-    [SerializeField]
-    private string _rank;
-    [SerializeField]
-    private string _suit;
-    [SerializeField]
-    private int _points;
-    [SerializeField]
-    private int _mults;
+    public string rank {get; private set;}
+    public string suit {get; private set;}
+    public int points {get; private set;}
+    public int mults {get; private set;}
+    public int value {get; private set;}
     public bool selectable = false;
     public bool selected = false;
 
@@ -27,17 +24,18 @@ public class Card : MonoBehaviour
         
     }
 
-    public void SetCard(string rank, string suit, int points, int mults)
+    public void SetCard(string _rank, string _suit, int _points, int _mults, int _value)
     {
-        _rank = rank;
-        _suit = suit;
-        _points = points;
-        _mults = mults;   
+        rank = _rank;
+        suit = _suit;
+        value = _value;
+        points = _points;
+        mults = _mults;
     }
 
     public void SetSprite()
     {
-        card.sprite = cards.GetSprite(_rank + _suit);
+        card.sprite = cards.GetSprite(rank + suit);
     }
     
     public void SetSprite(string name)
@@ -47,7 +45,7 @@ public class Card : MonoBehaviour
 
     public string GetName()
     {
-        return _rank + _suit;
+        return rank + suit;
     }
 
     public void Select()

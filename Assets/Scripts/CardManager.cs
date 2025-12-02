@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public class CardManager : MonoBehaviour
 {
@@ -35,13 +36,49 @@ public class CardManager : MonoBehaviour
 
     public void PlayHand()
     {
+        List<List<Card>> cards = new List<List<Card>>();
+        // get rows of selected cards
         foreach (CardHolder ch in cardHolders)
         {
+            List<Card> row = new List<Card>();
             foreach(CardSlot cs in ch.cardSlots)
             {
                 Card card = cs.GetComponentInChildren<Card>();
-                Debug.Log(card.selected);
+                if (!card.selected) continue;
+                row.Add(card);
             }
+            cards.Add(row);
+        }
+        // check if hand form is correct (at least two rows & one row must have a single card)
+        int rowAtLeast1 = 0, rowExactly1 = 0;
+        foreach(List<Card> row in cards) {
+            if (row.Count > 0) rowAtLeast1 += 1;
+            if (row.Count == 1) rowExactly1 += 1;
+        }
+        if (rowAtLeast1 >= 2 && rowExactly1 >= 1) {
+            Debug.Log("Valid Hand!");
+        }
+        else {
+            Debug.Log("Invalid Hand!");
+            return;
+        }
+        // start score validation
+        Card single = null;
+        List<List<Card>> otherCards = new List<List<Card>>();
+        foreach(List<Card> row in cards) {
+            if (row.Count == 1 && single == null) {
+                single = row[0];
+            }
+            else {
+                otherCards.Add(row);
+            }
+        }
+
+        foreach(List<Card> row in otherCards) {
+            var values = row.Select(x => new List<int>(){x.value});
+            // var values = row.Select(x => new List<int>(){x.value});
+            Debug.Log(values);
+            Scoring.CheckHand(values, single.value);
         }
     }
 }

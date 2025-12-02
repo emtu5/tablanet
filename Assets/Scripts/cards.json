@@ -13,7 +13,7 @@
         {"id": "J", "name": "Jack",  "value": 12, "points": 12, "mults": 1},
         {"id": "Q", "name": "Queen",  "value": 13, "points": 13, "mults": 1},
         {"id": "K", "name": "King",  "value": 14, "points": 14, "mults": 1},
-        {"id": "A", "name": "Ace",  "value": [1, 11], "points": [1, 11], "mults": 1}
+        {"id": "A", "name": "Ace",  "value": 11, "points": 11, "mults": 1}
     ],
     "suits":
     [

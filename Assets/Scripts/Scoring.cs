@@ -41,14 +41,14 @@ public class Scoring
         }
     }
 
-    private void Swap<T>(ref T a, ref T b)
+    void Swap<T>(ref T a, ref T b)
     {
         T temp = a;
         a = b;
         b = temp;
     }
 
-    public List<List<int>> DivideIntoSubsets(List<int> nums)
+    List<List<int>> DivideIntoSubsets(List<int> nums)
     {
         // get all permutations
         // for each permutation, check manually if it's subsets listed in order
@@ -57,7 +57,7 @@ public class Scoring
         return null;
     }
 
-    public bool CheckHand(List<List<int>> cards)
+    static public bool CheckHand(IEnumerable<List<int>> cards, int mainCard)
     {
         // get cartesian product of all card values
         // for each product, divide into subsets

@@ -7,7 +7,7 @@ public class CardHolder : MonoBehaviour
     public int totalSlots = 0;
     public CardSlot cardSlotPrefab;
     public List<CardSlot> cardSlots;
-    float cardSpacing = 2.2f;
+    float cardSpacing = 1.7f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void FillSlots()
     {

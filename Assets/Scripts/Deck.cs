@@ -28,7 +28,7 @@ public class Deck : MonoBehaviour
             foreach(JSONNode s in cardJSONData["suits"])
             {
                 Card c = Instantiate(cardPrefab, gameObject.transform) as Card;
-                c.SetCard(r["id"], s["id"], r["points"], r["mults"]);
+                c.SetCard(r["id"], s["id"], r["value"], r["points"], r["mults"]);
                 c.SetSprite();
                 deck.Add(c);
             }
