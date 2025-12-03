@@ -2,7 +2,7 @@ using UnityEngine;
 using SimpleJSON;
 using System;
 using System.Collections.Generic;
-
+using System.Linq;
 public class Deck : MonoBehaviour
 {
     // TODO: deck data should be loaded somewhere else (no persistent data yet)
@@ -28,7 +28,10 @@ public class Deck : MonoBehaviour
             foreach(JSONNode s in cardJSONData["suits"])
             {
                 Card c = Instantiate(cardPrefab, gameObject.transform) as Card;
-                c.SetCard(r["id"], s["id"], r["value"], r["points"], r["mults"]);
+                var values = new List<int>();
+                foreach(JSONNode val in r["value"].AsArray)
+                    values.Add(val.AsInt);
+                c.SetCard(r["id"], s["id"], values, r["points"], r["mults"]);
                 c.SetSprite();
                 deck.Add(c);
             }

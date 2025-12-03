@@ -74,11 +74,23 @@ public class CardManager : MonoBehaviour
             }
         }
 
+        List<List<int>> finalValues = new List<List<int>>();
         foreach(List<Card> row in otherCards) {
-            var values = row.Select(x => new List<int>(){x.value}).ToList();
+            var values = row.Select(x => x.value).ToList();
             // var values = row.Select(x => new List<int>(){x.value});
             Debug.Log("doing a row");
-            if (values.Count > 0) Scoring.CheckHand(values, single.value);
+            if (values.Count == 0) continue;
+            Debug.LogFormat("row is used, length = {0}", values.Count);
+            // TODO: refactor single value (that should also be part of the product)
+            var chosenValues = Scoring.CheckHand(values, single.value[0]);
+            if (chosenValues == null) {
+                Debug.Log("Invalid Hand");
+                break;
+            }
+            else {
+                Debug.Log("Valid Hand");
+                finalValues.Add(chosenValues.ToList());
+            }
         }
     }
 }

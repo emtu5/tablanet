@@ -18,6 +18,7 @@ public class Scoring
             );
     }
 
+    // https://stackoverflow.com/a/10630026
     static IEnumerable<IEnumerable<T>> GetPermutations<T>(IEnumerable<T> list, int length)
     {
         if (length == 1) return list.Select(t => new T[] { t });
@@ -34,7 +35,7 @@ public class Scoring
         // foreach (int elem in nums) {
         //     Debug.Log(elem);
         // }
-        // Debug.LogFormat("length: {0}", nums.Count);
+        Debug.LogFormat("length: {0}", nums.Count);
         var allPerms = GetPermutations(nums, nums.Count);
         foreach (var perm in allPerms) {
             // for each permutation, check manually if it's subsets listed in order
@@ -59,23 +60,26 @@ public class Scoring
         
         // if it is, it can divide, yay
         // otherwise, over
+        Debug.Log("guh");
         return null;
     }
 
-    static public bool CheckHand(IEnumerable<List<int>> cards, int mainCard)
+    static public IEnumerable<int> CheckHand(IEnumerable<List<int>> cards, int mainCard)
     {
         // get cartesian product of all card values
         var allPossibleInitialValues = CartesianProduct(cards);
+        Debug.Log(allPossibleInitialValues);
         foreach (var product in allPossibleInitialValues) {
+
             // for each product, divide into subsets
             // if it can divide, hand is valid, return valid set
             // otherwise, error
             var result = DivideIntoSubsets(product.ToList(), mainCard);
             if (result != null) {
-                Debug.Log("HAND THAT SCORES!!!");
-                return true;
+                return product;
             }
         }
-        return false;
+        Debug.Log("guh2");
+        return null;
     }
 }
