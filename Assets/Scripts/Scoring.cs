@@ -5,6 +5,8 @@ using System.Linq;
 
 public class Scoring
 {
+    // TODO: Optimize this doohickey
+    
     // https://stackoverflow.com/a/3098381
     static IEnumerable<IEnumerable<T>> CartesianProduct<T>(IEnumerable<IEnumerable<T>> sequences)
     {
@@ -17,7 +19,8 @@ public class Scoring
                 select accseq.Concat(new[] {item})                          
             );
     }
-
+ 
+    // ISSUE: GetPermutations does not accept duplicates
     // https://stackoverflow.com/a/10630026
     static IEnumerable<IEnumerable<T>> GetPermutations<T>(IEnumerable<T> list, int length)
     {
@@ -32,15 +35,16 @@ public class Scoring
     {
         // current code is abysmally unoptimized, but I don't care right now
         // get all permutations
-        // foreach (int elem in nums) {
-        //     Debug.Log(elem);
-        // }
+        foreach (int elem in nums) {
+            Debug.Log(elem);
+        }
         Debug.LogFormat("length: {0}", nums.Count);
         var allPerms = GetPermutations(nums, nums.Count);
         foreach (var perm in allPerms) {
             // for each permutation, check manually if it's subsets listed in order
             int currentTotal = 0;
             foreach(int elem in perm) {
+                Debug.Log(currentTotal);
                 currentTotal += elem;
                 if (currentTotal == total) {
                     currentTotal = 0;
@@ -48,6 +52,7 @@ public class Scoring
                 else if (currentTotal > total) {
                     break;
                 }
+                Debug.Log(currentTotal);
             }
             if (currentTotal == 0) {
                 foreach (int elem in perm) {
@@ -60,7 +65,7 @@ public class Scoring
         
         // if it is, it can divide, yay
         // otherwise, over
-        Debug.Log("guh");
+        // Debug.Log("guh");
         return null;
     }
 
@@ -79,7 +84,7 @@ public class Scoring
                 return product;
             }
         }
-        Debug.Log("guh2");
+        // Debug.Log("guh2");
         return null;
     }
 }

@@ -7,13 +7,16 @@ public class CardManager : MonoBehaviour
 {
     public List<CardHolder> cardHolders;
     public Deck deck;
+    public Transform discardPile;
+
     void DealCards()
     {
         foreach (CardHolder ch in cardHolders)
         {
             foreach(CardSlot cs in ch.cardSlots)
             {
-                if (transform.childCount > 0) continue;
+                Debug.Log(cs.transform.childCount);
+                if (cs.transform.childCount > 0) continue;
                 Card dealtCard = deck.deck[deck.deck.Count - 1];
                 dealtCard.selectable = true;
                 deck.deck.RemoveAt(deck.deck.Count - 1);
@@ -23,6 +26,22 @@ public class CardManager : MonoBehaviour
         }
     }
     
+    void DiscardCards() 
+    {
+        foreach (CardHolder ch in cardHolders)
+        {
+            foreach(CardSlot cs in ch.cardSlots)
+            {
+                Card card = cs.GetComponentInChildren<Card>();
+                if (!card.selected) continue;
+                card.selected = false;
+                card.selectable = false;
+                card.transform.parent = discardPile;
+                card.transform.localPosition = new Vector3(0, 0, 0);
+            }
+        }
+    }
+
     void Start()
     {
         foreach (CardHolder ch in cardHolders)
@@ -86,12 +105,16 @@ public class CardManager : MonoBehaviour
             var chosenValues = Scoring.CheckHand(values);
             if (chosenValues == null) {
                 Debug.Log("Invalid Hand");
-                break;
+                return;
             }
             else {
                 Debug.Log("Valid Hand");
                 finalValues.Add(chosenValues.ToList());
             }
         }
+
+        // scores;
+        DiscardCards();
+        DealCards();
     }
 }
