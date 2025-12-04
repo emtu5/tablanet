@@ -77,12 +77,13 @@ public class CardManager : MonoBehaviour
         List<List<int>> finalValues = new List<List<int>>();
         foreach(List<Card> row in otherCards) {
             var values = row.Select(x => x.value).ToList();
+            values.Insert(0, single.value);
             // var values = row.Select(x => new List<int>(){x.value});
             Debug.Log("doing a row");
-            if (values.Count == 0) continue;
+            if (values.Count == 1) continue;
             Debug.LogFormat("row is used, length = {0}", values.Count);
             // TODO: refactor single value (that should also be part of the product)
-            var chosenValues = Scoring.CheckHand(values, single.value[0]);
+            var chosenValues = Scoring.CheckHand(values);
             if (chosenValues == null) {
                 Debug.Log("Invalid Hand");
                 break;

@@ -64,7 +64,7 @@ public class Scoring
         return null;
     }
 
-    static public IEnumerable<int> CheckHand(IEnumerable<List<int>> cards, int mainCard)
+    static public IEnumerable<int> CheckHand(IEnumerable<List<int>> cards)
     {
         // get cartesian product of all card values
         var allPossibleInitialValues = CartesianProduct(cards);
@@ -74,7 +74,7 @@ public class Scoring
             // for each product, divide into subsets
             // if it can divide, hand is valid, return valid set
             // otherwise, error
-            var result = DivideIntoSubsets(product.ToList(), mainCard);
+            var result = DivideIntoSubsets(product.Skip(1).ToList(), product.ToList()[0]);
             if (result != null) {
                 return product;
             }
