@@ -8,6 +8,7 @@ public class CardManager : MonoBehaviour
     public List<CardHolder> cardHolders;
     public Deck deck;
     public Transform discardPile;
+    public RoundManager roundManager;
 
     void DealCards()
     {
@@ -102,6 +103,7 @@ public class CardManager : MonoBehaviour
             if (values.Count == 1) continue;
             Debug.LogFormat("row is used, length = {0}", values.Count);
             // TODO: refactor single value (that should also be part of the product)
+            // TODO: maybe pick the single value before sending it to the Scoring Check
             var chosenValues = Scoring.CheckHand(values);
             if (chosenValues == null) {
                 Debug.Log("Invalid Hand");
@@ -114,6 +116,22 @@ public class CardManager : MonoBehaviour
         }
 
         // scores;
+        int points = 0;
+        points += finalValues[0][0];
+        foreach(List<int> row in finalValues) {
+            foreach(int value in row.Skip(1)) {
+                points += value;
+            }
+        }
+        int mults = 0;
+        foreach(List<Card> row in cards) {
+            foreach(Card c in row) {
+                mults += c.mults;
+            }
+        }
+        // how do I clean architecture
+        roundManager.ShowHandValue(points, mults);
+        roundManager.AddToTotal();
         DiscardCards();
         DealCards();
     }
