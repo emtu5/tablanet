@@ -39,13 +39,14 @@ public class Scoring
             Debug.Log(elem);
         }
         Debug.LogFormat("length: {0}", nums.Count);
-        var allPerms = GetPermutations(nums, nums.Count);
+        // use indices
+        var allPerms = GetPermutations(Enumerable.Range(0, nums.Count), nums.Count);
         foreach (var perm in allPerms) {
             // for each permutation, check manually if it's subsets listed in order
             int currentTotal = 0;
-            foreach(int elem in perm) {
+            foreach(int index in perm) {
                 Debug.Log(currentTotal);
-                currentTotal += elem;
+                currentTotal += nums[index];
                 if (currentTotal == total) {
                     currentTotal = 0;
                 }
@@ -55,8 +56,8 @@ public class Scoring
                 Debug.Log(currentTotal);
             }
             if (currentTotal == 0) {
-                foreach (int elem in perm) {
-                    Debug.Log(elem);
+                foreach (int index in perm) {
+                    Debug.Log(nums[index]);
                 }
                 return perm.ToList();
             }
