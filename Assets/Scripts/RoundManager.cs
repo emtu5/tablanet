@@ -12,6 +12,8 @@ public class RoundManager : MonoBehaviour
     public TMP_Text hand;
     public TMP_Text total;
     public Button playButton;
+    public RectTransform winPanel;
+    public RectTransform losePanel;
     public int handsLeft = 5;
 
     void Awake()
