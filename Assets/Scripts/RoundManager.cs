@@ -5,12 +5,14 @@ using System;
 
 public class RoundManager : MonoBehaviour
 {
+    public TMP_Text round;
+    public TMP_Text scoreRequirement;
     public TMP_Text points;
     public TMP_Text mults;
     public TMP_Text hand;
     public TMP_Text total;
     public Button playButton;
-    public int handsLeft = 1;
+    public int handsLeft = 5;
 
     void Awake()
     {
