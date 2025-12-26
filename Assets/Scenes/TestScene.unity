@@ -1036,6 +1036,8 @@ MonoBehaviour:
   mults: {fileID: 571854423}
   hand: {fileID: 1647690275}
   total: {fileID: 300748964}
+  playButton: {fileID: 1123822282}
+  handsLeft: 1
 --- !u!4 &939413155
 Transform:
   m_ObjectHideFlags: 0

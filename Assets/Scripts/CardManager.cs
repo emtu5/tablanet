@@ -132,6 +132,7 @@ public class CardManager : MonoBehaviour
         // how do I clean architecture
         roundManager.ShowHandValue(points, mults);
         roundManager.AddToTotal();
+        roundManager.PlayHand();
         DiscardCards();
         DealCards();
     }
