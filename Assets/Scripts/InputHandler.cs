@@ -12,6 +12,8 @@ public class InputHandler : MonoBehaviour
 
     public void OnMouseEnter(InputAction.CallbackContext context)
     {
+        if (GameManager.Instance.advanceToNextRound) return;
+        
         var rayHit = Physics2D.GetRayIntersection(_mainCamera.ScreenPointToRay(context.ReadValue<Vector2>()));
         
         _prevHover = _nextHover;
