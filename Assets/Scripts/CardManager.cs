@@ -10,7 +10,7 @@ public class CardManager : MonoBehaviour
     public Transform discardPile;
     public RoundManager roundManager;
 
-    void DealCards()
+    public void DealCards()
     {
         foreach (CardHolder ch in cardHolders)
         {
@@ -18,6 +18,7 @@ public class CardManager : MonoBehaviour
             {
                 Debug.Log(cs.transform.childCount);
                 if (cs.transform.childCount > 0) continue;
+                if (deck.deck.Count == 0) continue;
                 Card dealtCard = deck.deck[deck.deck.Count - 1];
                 dealtCard.selectable = true;
                 deck.deck.RemoveAt(deck.deck.Count - 1);
@@ -27,12 +28,13 @@ public class CardManager : MonoBehaviour
         }
     }
     
-    void DiscardCards() 
+    public void DiscardCards() 
     {
         foreach (CardHolder ch in cardHolders)
         {
             foreach(CardSlot cs in ch.cardSlots)
             {
+                if (cs.transform.childCount == 0) continue;
                 Card card = cs.GetComponentInChildren<Card>();
                 if (!card.selected) continue;
                 card.selected = false;
@@ -63,6 +65,7 @@ public class CardManager : MonoBehaviour
             List<Card> row = new List<Card>();
             foreach(CardSlot cs in ch.cardSlots)
             {
+                if (cs.transform.childCount == 0) continue;
                 Card card = cs.GetComponentInChildren<Card>();
                 if (!card.selected) continue;
                 row.Add(card);
@@ -123,7 +126,7 @@ public class CardManager : MonoBehaviour
                 points += value;
             }
         }
-        int mults = 0;
+        int mults = 1;
         foreach(List<Card> row in cards) {
             foreach(Card c in row) {
                 mults += c.mults;
