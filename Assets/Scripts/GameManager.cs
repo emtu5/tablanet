@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public bool loss = false;
     // TODO: this is magic number shit but I wanna prototype this firstly
     public List<int> scoreRequirement;
+    public List<Item> items;
     void Awake()
     {
         round = 1;

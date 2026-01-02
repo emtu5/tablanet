@@ -13,6 +13,8 @@ public class Card : MonoBehaviour
     public int points {get; private set;}
     public int mults {get; private set;}
     public List<int> value;
+    public int extraPoints = 0;
+    public int extraMults = 0;
     public bool selectable = false;
     public bool selected = false;
 
@@ -62,5 +64,10 @@ public class Card : MonoBehaviour
         {
             transform.localPosition = new Vector3(0f, 0f, 0f);
         }
+    }
+
+    public void Gwah()
+    {
+        Debug.Log("Gwah");
     }
 }

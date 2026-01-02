@@ -1,0 +1,55 @@
+using UnityEngine;
+using System;
+using System.Collections.Generic;
+
+public class EffectsManager : MonoBehaviour
+{
+    public CardManager cardManager;
+    public RoundManager roundManager;
+    public ItemManager itemManager;
+    
+    // Discard Selected
+    public void Discard()
+    {
+        cardManager.DiscardCards();
+        cardManager.DealCards();
+    }
+
+    public void Play()
+    {
+        cardManager.PlayHand();
+        cardManager.DiscardCards();
+        cardManager.DealCards();
+    }
+
+    public void AddMult(Card c, int amount)
+    {
+        c.extraMults += amount;
+    }
+
+    public void AddPoints(Card c, int amount)
+    {
+        c.extraPoints += amount;
+    }
+
+    public void ChangeValue(Card c, int value)
+    {
+        c.value = new List<int>{value};
+    }
+
+    public void ScoreMult(int amount)
+    {
+        // Debug.Log("meow?");
+        Debug.LogFormat("You're scoring {0} mults!", amount);
+    }
+
+    public void ScorePoints(int amount)
+    {
+        Debug.LogFormat("You're scoring {0} mults!", amount);
+    }
+
+    public List<CardHolder> GetCards()
+    {
+        return cardManager.cardHolders;
+    }
+}
