@@ -39,12 +39,13 @@ public class EffectsManager : MonoBehaviour
 
     public void ScoreMult(int amount)
     {
-        // Debug.Log("meow?");
+        cardManager.mults += amount;
         Debug.LogFormat("You're scoring {0} mults!", amount);
     }
 
     public void ScorePoints(int amount)
     {
+        cardManager.points += amount;
         Debug.LogFormat("You're scoring {0} mults!", amount);
     }
 

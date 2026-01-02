@@ -9,7 +9,8 @@ public class CardManager : MonoBehaviour
     public Deck deck;
     public Transform discardPile;
     public RoundManager roundManager;
-
+    public int points;
+    public int mults;
     public void DealCards()
     {
         foreach (CardHolder ch in cardHolders)
@@ -119,18 +120,24 @@ public class CardManager : MonoBehaviour
         }
 
         // scores;
-        int points = 0;
+        points = 0;
+        mults = 1;
         points += finalValues[0][0];
         foreach(List<int> row in finalValues) {
             foreach(int value in row.Skip(1)) {
                 points += value;
             }
         }
-        int mults = 1;
         foreach(List<Card> row in cards) {
             foreach(Card c in row) {
                 mults += c.mults;
             }
+        }
+        //items
+        foreach (Item i in GameManager.Instance.items)
+        {
+            if (i.data.type != ItemData.ItemType.PASSIVE) continue;
+            i.ItemScore();
         }
         // how do I clean architecture
         roundManager.ShowHandValue(points, mults);
