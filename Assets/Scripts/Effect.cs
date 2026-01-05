@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class Effect : MonoBehaviour
+public abstract class Effect
 {
     public EffectsManager toolbox;
     public bool IsValid()
@@ -8,4 +8,8 @@ public abstract class Effect : MonoBehaviour
         return true;
     }
     public abstract void Perform();
+    public virtual void Init()
+    {
+        
+    }
 }

@@ -1,13 +1,16 @@
 using UnityEngine;
 
+using SerializeReferenceEditor;
+
 public class Item : MonoBehaviour
 {
     public ItemData data;
+    [SerializeReference]
+    [SR]
     public Effect effect;
-
     public void ItemClick()
     {
-        if (data.type == ItemData.ItemType.PASSIVE) return;
+        // if (data.type == ItemData.ItemType.PASSIVE) return;
         Debug.Log(effect.IsValid());
         if (effect.IsValid()) effect.Perform();
         Debug.Log("you did click!");
@@ -30,6 +33,12 @@ public class Item : MonoBehaviour
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
+        effect.Init();
+    }
+
+    void Start()
+    {
+        
     }
 
     // Update is called once per frame

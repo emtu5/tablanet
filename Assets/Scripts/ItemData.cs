@@ -1,4 +1,5 @@
 using UnityEngine;
+using SerializeReferenceEditor;
 
 [CreateAssetMenu(fileName = "ItemData", menuName = "Scriptable Objects/ItemData")]
 public class ItemData : ScriptableObject
@@ -22,4 +23,7 @@ public class ItemData : ScriptableObject
     public string id;
     public string itemName;
     public string description;
+    // [SerializeReference]
+    // [SR]
+    // public Effect effect;
 }

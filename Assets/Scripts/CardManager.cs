@@ -59,6 +59,46 @@ public class CardManager : MonoBehaviour
 
     public void PlayHand()
     {
+        var finalValues = ValidateHand();
+        // if (!finalValues) return;
+
+        // scores;
+        points = 0;
+        mults = 1;
+        points += finalValues[0][0];
+        foreach(List<int> row in finalValues) {
+            foreach(int value in row.Skip(1)) {
+                points += value;
+            }
+        }
+        // OOPS
+        // foreach(List<Card> row in cards) {
+        //     foreach(Card c in row) {
+        //         mults += c.mults;
+        //     }
+        // }
+        //items
+        foreach (Item i in GameManager.Instance.items)
+        {
+            if (i.data.type != ItemData.ItemType.PASSIVE) continue;
+            Debug.Log("ITEM!!!");
+            i.ItemScore();
+        }
+        // how do I clean architecture
+        roundManager.ShowHandValue(points, mults);
+        roundManager.AddToTotal();
+        roundManager.PlayHand();
+        DiscardCards();
+        DealCards();
+    }
+
+    public void ForcePlayHand()
+    {
+        
+    }
+    
+    public List<List<int>> ValidateHand()
+    {
         List<List<Card>> cards = new List<List<Card>>();
         // get rows of selected cards
         foreach (CardHolder ch in cardHolders)
@@ -84,7 +124,7 @@ public class CardManager : MonoBehaviour
         }
         else {
             Debug.Log("Invalid Hand!");
-            return;
+            return null;
         }
         // start score validation
         Card single = null;
@@ -111,7 +151,7 @@ public class CardManager : MonoBehaviour
             var chosenValues = Scoring.CheckHand(values);
             if (chosenValues == null) {
                 Debug.Log("Invalid Hand");
-                return;
+                return null;
             }
             else {
                 Debug.Log("Valid Hand");
@@ -119,31 +159,6 @@ public class CardManager : MonoBehaviour
             }
         }
 
-        // scores;
-        points = 0;
-        mults = 1;
-        points += finalValues[0][0];
-        foreach(List<int> row in finalValues) {
-            foreach(int value in row.Skip(1)) {
-                points += value;
-            }
-        }
-        foreach(List<Card> row in cards) {
-            foreach(Card c in row) {
-                mults += c.mults;
-            }
-        }
-        //items
-        foreach (Item i in GameManager.Instance.items)
-        {
-            if (i.data.type != ItemData.ItemType.PASSIVE) continue;
-            i.ItemScore();
-        }
-        // how do I clean architecture
-        roundManager.ShowHandValue(points, mults);
-        roundManager.AddToTotal();
-        roundManager.PlayHand();
-        DiscardCards();
-        DealCards();
+        return finalValues;
     }
 }
