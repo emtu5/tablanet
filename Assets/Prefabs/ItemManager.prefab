@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &375849757138481565
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5277341745008032222}
+  - component: {fileID: 8847855395126007879}
+  - component: {fileID: 3783691600188392945}
+  m_Layer: 0
+  m_Name: ItemManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5277341745008032222
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375849757138481565}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.00545, y: 0.19717, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8847855395126007879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375849757138481565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1679dfc60fe5b0d595350c6a75e40ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemManager
+  effectsManager: {fileID: 0}
+  itemList: {fileID: 3783691600188392945}
+  itemPrefab: {fileID: 2331847490747773736, guid: 84ed116dd214bdb07b62444192a0258e, type: 3}
+--- !u!114 &3783691600188392945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375849757138481565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c372610fd71c7e8c385f928cfaee8299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemDefinition
+  commonItems:
+  - itemData: {fileID: 11400000, guid: 3e2599c0de8e2afa3899f3d039e7251e, type: 2}
+    effect:
+      rid: 8683148001768374347
+  uncommonItems:
+  - itemData: {fileID: 11400000, guid: 5e247722ea6b98a99a1e039c850e721b, type: 2}
+    effect:
+      rid: 8683148001768374348
+  rareItems:
+  - itemData: {fileID: 11400000, guid: 3e2599c0de8e2afa3899f3d039e7251e, type: 2}
+    effect:
+      rid: 8683148001768374349
+  references:
+    version: 2
+    RefIds:
+    - rid: 8683148001768374347
+      type: {class: MultRank, ns: , asm: Assembly-CSharp}
+      data:
+        toolbox: {fileID: 0}
+        extraMult: 0
+        rank: 
+    - rid: 8683148001768374348
+      type: {class: ExtraHand, ns: , asm: Assembly-CSharp}
+      data:
+        toolbox: {fileID: 0}
+    - rid: 8683148001768374349
+      type: {class: MultRank, ns: , asm: Assembly-CSharp}
+      data:
+        toolbox: {fileID: 0}
+        extraMult: 0
+        rank: 

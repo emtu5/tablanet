@@ -33,7 +33,7 @@ public class Item : MonoBehaviour
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
-        effect.Init();
+        // if (effect != null) effect.Init();
     }
 
     void Start()

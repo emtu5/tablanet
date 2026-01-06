@@ -29,6 +29,7 @@ public class ItemManager : MonoBehaviour
             Debug.Log("RARE");
         }
         i.data = chosen.itemData; i.effect = chosen.effect; i.effect.toolbox = effectsManager;
+        // i.effect.Init();
         GameManager.Instance.items.Add(i);
     }
 
