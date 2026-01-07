@@ -74,6 +74,20 @@ public class Shop : MonoBehaviour
         }
     }
 
+    public void PanelClick(ShopPanel panel)
+    {
+        int index = panels.IndexOf(panel);
+        Debug.Log(index);
+        for (int i = panels.Count - 1; i >= 0; i--)
+        {
+            if (i == index)
+            {
+                items[i].transform.parent = GameManager.Instance.transform;
+            }
+        }
+        GameManager.Instance.RestartScene();
+    }
+
     // Update is called once per frame
     void Update()
     {

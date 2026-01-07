@@ -212,11 +212,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7611787724893261350, guid: 913f13420aab06e3ca65e7e0930b49ee, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 390.1237
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7611787724893261350, guid: 913f13420aab06e3ca65e7e0930b49ee, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 206.0731
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7611787724893261350, guid: 913f13420aab06e3ca65e7e0930b49ee, type: 3}
       propertyPath: m_LocalPosition.z
@@ -350,11 +350,19 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1431595448629174405, guid: 2e8a6b99385f9bc788269a0b01a29f80, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 774906363}
   m_SourcePrefab: {fileID: 100100000, guid: 2e8a6b99385f9bc788269a0b01a29f80, type: 3}
 --- !u!224 &774906360 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 280291484807391460, guid: 2e8a6b99385f9bc788269a0b01a29f80, type: 3}
+  m_PrefabInstance: {fileID: 774906359}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &774906361 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1431595448629174405, guid: 2e8a6b99385f9bc788269a0b01a29f80, type: 3}
   m_PrefabInstance: {fileID: 774906359}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &774906362 stripped
@@ -362,12 +370,98 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8835641939824557205, guid: 2e8a6b99385f9bc788269a0b01a29f80, type: 3}
   m_PrefabInstance: {fileID: 774906359}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 774906361}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d4bfa38d2cd455f02b599d49b5d65400, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShopPanel
+--- !u!114 &774906363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 774906361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 928835020}
+          m_TargetAssemblyTypeName: Shop, Assembly-CSharp
+          m_MethodName: PanelClick
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 774906362}
+            m_ObjectArgumentAssemblyTypeName: ShopPanel, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!1001 &853054171
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2558229739382053415, guid: 4871829ecceb1ca358eb1d6eb853779e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2558229739382053415, guid: 4871829ecceb1ca358eb1d6eb853779e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2558229739382053415, guid: 4871829ecceb1ca358eb1d6eb853779e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2558229739382053415, guid: 4871829ecceb1ca358eb1d6eb853779e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2558229739382053415, guid: 4871829ecceb1ca358eb1d6eb853779e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2558229739382053415, guid: 4871829ecceb1ca358eb1d6eb853779e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2558229739382053415, guid: 4871829ecceb1ca358eb1d6eb853779e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2558229739382053415, guid: 4871829ecceb1ca358eb1d6eb853779e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2558229739382053415, guid: 4871829ecceb1ca358eb1d6eb853779e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2558229739382053415, guid: 4871829ecceb1ca358eb1d6eb853779e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4355100246391514171, guid: 4871829ecceb1ca358eb1d6eb853779e, type: 3}
+      propertyPath: m_Name
+      value: GameManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4871829ecceb1ca358eb1d6eb853779e, type: 3}
 --- !u!1001 &928835018
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -382,11 +476,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5277341745008032222, guid: f9c68e3ca98dd060fa2d482bc1777e71, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 459.96707
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5277341745008032222, guid: f9c68e3ca98dd060fa2d482bc1777e71, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 179.7572
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5277341745008032222, guid: f9c68e3ca98dd060fa2d482bc1777e71, type: 3}
       propertyPath: m_LocalPosition.z
@@ -654,11 +748,19 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1431595448629174405, guid: 2e8a6b99385f9bc788269a0b01a29f80, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1540005084}
   m_SourcePrefab: {fileID: 100100000, guid: 2e8a6b99385f9bc788269a0b01a29f80, type: 3}
 --- !u!224 &1540005081 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 280291484807391460, guid: 2e8a6b99385f9bc788269a0b01a29f80, type: 3}
+  m_PrefabInstance: {fileID: 1540005080}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1540005082 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1431595448629174405, guid: 2e8a6b99385f9bc788269a0b01a29f80, type: 3}
   m_PrefabInstance: {fileID: 1540005080}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1540005083 stripped
@@ -666,12 +768,41 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8835641939824557205, guid: 2e8a6b99385f9bc788269a0b01a29f80, type: 3}
   m_PrefabInstance: {fileID: 1540005080}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1540005082}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d4bfa38d2cd455f02b599d49b5d65400, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShopPanel
+--- !u!114 &1540005084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1540005082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 928835020}
+          m_TargetAssemblyTypeName: Shop, Assembly-CSharp
+          m_MethodName: PanelClick
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1540005083}
+            m_ObjectArgumentAssemblyTypeName: ShopPanel, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1727649063
 GameObject:
   m_ObjectHideFlags: 0
@@ -983,7 +1114,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 280291484807391460, guid: 2e8a6b99385f9bc788269a0b01a29f80, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.000061035156
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 280291484807391460, guid: 2e8a6b99385f9bc788269a0b01a29f80, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1008,11 +1139,19 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1431595448629174405, guid: 2e8a6b99385f9bc788269a0b01a29f80, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2608875353088641673}
   m_SourcePrefab: {fileID: 100100000, guid: 2e8a6b99385f9bc788269a0b01a29f80, type: 3}
 --- !u!224 &2608875353088641670 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 280291484807391460, guid: 2e8a6b99385f9bc788269a0b01a29f80, type: 3}
+  m_PrefabInstance: {fileID: 2608875353088641669}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2608875353088641671 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1431595448629174405, guid: 2e8a6b99385f9bc788269a0b01a29f80, type: 3}
   m_PrefabInstance: {fileID: 2608875353088641669}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &2608875353088641672 stripped
@@ -1020,12 +1159,41 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8835641939824557205, guid: 2e8a6b99385f9bc788269a0b01a29f80, type: 3}
   m_PrefabInstance: {fileID: 2608875353088641669}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2608875353088641671}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d4bfa38d2cd455f02b599d49b5d65400, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShopPanel
+--- !u!114 &2608875353088641673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2608875353088641671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 928835020}
+          m_TargetAssemblyTypeName: Shop, Assembly-CSharp
+          m_MethodName: PanelClick
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 2608875353088641672}
+            m_ObjectArgumentAssemblyTypeName: ShopPanel, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1035,3 +1203,4 @@ SceneRoots:
   - {fileID: 7527476}
   - {fileID: 308096682}
   - {fileID: 928835018}
+  - {fileID: 853054171}

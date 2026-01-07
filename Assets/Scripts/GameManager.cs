@@ -44,4 +44,11 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("Assets/Scenes/TestScene.unity");
     }
+
+    public void GoToShop()
+    {
+        Debug.Log("hello");
+        SceneManager.LoadScene("Assets/Scenes/Shop.unity");
+        Debug.Log("hi");
+    }
 }
