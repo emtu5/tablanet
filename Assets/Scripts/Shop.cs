@@ -58,7 +58,7 @@ public class Shop : MonoBehaviour
             // panels[i].image.sprite = null;
             panels[i].name.text = items[i].data.itemName;
             panels[i].type.text = items[i].data.type.ToString();
-            panels[i].description.text = items[i].data.description;
+            panels[i].description.text = String.Format(items[i].data.description, items[i].effect.GetData());
             switch (items[i].data.rarity)
             {
                 case ItemData.Rarity.COMMON:
@@ -83,6 +83,7 @@ public class Shop : MonoBehaviour
             if (i == index)
             {
                 items[i].transform.parent = GameManager.Instance.transform;
+                GameManager.Instance.items.Add(items[i]);
             }
         }
         GameManager.Instance.RestartScene();

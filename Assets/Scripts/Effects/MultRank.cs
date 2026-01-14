@@ -40,6 +40,11 @@ public class MultRank : Effect
     {
         extraMult = 2;
         rank = new List<string>{"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"}[UnityEngine.Random.Range(0, 12)];
-        Debug.LogFormat("I'm trying my best, okay? {0}", extraMult);
+        Debug.LogFormat("I'm trying my best, okay? {0}", rank);
+    }
+
+    public override string GetData()
+    {
+        return rank;
     }
 }

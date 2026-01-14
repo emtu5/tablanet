@@ -41,7 +41,7 @@ public class ItemManager : MonoBehaviour
 
     void Start()
     {
-        CreateItem();
+        // CreateItem();
         // CreateItem();
         // CreateItem();
         foreach(Item i in GameManager.Instance.items)

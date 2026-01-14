@@ -12,4 +12,9 @@ public abstract class Effect
     {
         
     }
+
+    public virtual string GetData()
+    {
+        return "";
+    }
 }
