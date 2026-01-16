@@ -16,4 +16,4 @@ MonoBehaviour:
   rarity: 0
   id: 0
   itemName: MultRank
-  description: 'Gives +2 Mult for every card with X rank. '
+  description: 'Gives +2 Mult for every card with {0} rank. '

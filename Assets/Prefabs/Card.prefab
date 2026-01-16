@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1954079774198406652}
   - component: {fileID: 2649469423982060498}
   - component: {fileID: 3577228562320347417}
+  - component: {fileID: 8220948876671057453}
   m_Layer: 0
   m_Name: Card
   m_TagString: Card
@@ -48,6 +49,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Card
   cards: {fileID: 100100200, guid: ed8509eb8d98c3043ade5f8d28176403, type: 3}
   value: 
+  extraPoints: 0
+  extraMults: 0
   selectable: 0
   selected: 0
 --- !u!114 &3577228562320347417
@@ -79,6 +82,28 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!95 &8220948876671057453
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5301083559044652200}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a23a946345aae97bca6ecc676b1fc216, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6004765727817465859
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,6 +17,7 @@ public class Card : MonoBehaviour
     public int extraMults = 0;
     public bool selectable = false;
     public bool selected = false;
+    public Animator animator;
 
     void Awake()
     {
@@ -69,5 +70,10 @@ public class Card : MonoBehaviour
     public void Gwah()
     {
         Debug.Log("Gwah");
+    }
+
+    public void Score()
+    {
+        animator.SetTrigger("Scoring");
     }
 }
