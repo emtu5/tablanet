@@ -59,24 +59,18 @@ public class CardManager : MonoBehaviour
 
     public void PlayHand()
     {
-        var finalValues = ValidateHand();
-        // if (!finalValues) return;
+        var cards = ValidateHand();
+        if (cards == null) return;
 
         // scores;
         points = 0;
         mults = 1;
-        points += finalValues[0][0];
-        foreach(List<int> row in finalValues) {
-            foreach(int value in row.Skip(1)) {
-                points += value;
+        foreach(List<Card> row in cards) {
+            foreach(Card c in row) {
+                points += c.GetValue();
+                mults += c.mults;
             }
         }
-        // OOPS
-        // foreach(List<Card> row in cards) {
-        //     foreach(Card c in row) {
-        //         mults += c.mults;
-        //     }
-        // }
         //items
         foreach (Item i in GameManager.Instance.items)
         {
@@ -97,7 +91,7 @@ public class CardManager : MonoBehaviour
         
     }
     
-    public List<List<int>> ValidateHand()
+    public List<List<Card>> ValidateHand()
     {
         List<List<Card>> cards = new List<List<Card>>();
         // get rows of selected cards
@@ -127,38 +121,44 @@ public class CardManager : MonoBehaviour
             return null;
         }
         // start score validation
-        Card single = null;
-        List<List<Card>> otherCards = new List<List<Card>>();
-        foreach(List<Card> row in cards) {
-            if (row.Count == 1 && single == null) {
-                single = row[0];
-            }
-            else {
-                otherCards.Add(row);
+        int singleIndex = -1;
+        for (int i = 0; i < cards.Count; i++)
+        {
+            if (cards[i].Count == 1 && singleIndex == -1)
+            {
+                singleIndex = i;
             }
         }
 
-        List<List<int>> finalValues = new List<List<int>>();
-        foreach(List<Card> row in otherCards) {
-            var values = row.Select(x => x.value).ToList();
-            values.Insert(0, single.value);
+        // List<List<int>> finalValues = new List<List<int>>();
+        for (int i = 0; i < cards.Count; i++)
+        {
+            if (i == singleIndex) continue;
+
+            var values = cards[i].Select(x => x.value).ToList();
+            values.Insert(0, cards[singleIndex][0].value);
             // var values = row.Select(x => new List<int>(){x.value});
             Debug.Log("doing a row");
             if (values.Count == 1) continue;
             Debug.LogFormat("row is used, length = {0}", values.Count);
             // TODO: refactor single value (that should also be part of the product)
             // TODO: maybe pick the single value before sending it to the Scoring Check
-            var chosenValues = Scoring.CheckHand(values);
+            var chosenValues = Scoring.CheckHand(values).ToList();
             if (chosenValues == null) {
                 Debug.Log("Invalid Hand");
                 return null;
             }
             else {
                 Debug.Log("Valid Hand");
-                finalValues.Add(chosenValues.ToList());
+                cards[singleIndex][0].currentValue = chosenValues[0];
+                for (int j = 0; j < cards[i].Count; j++)
+                {
+                    cards[i][j].currentValue = chosenValues[j + 1];
+                }
+                // finalValues.Add(chosenValues.ToList());
             }
         }
 
-        return finalValues;
+        return cards;
     }
 }

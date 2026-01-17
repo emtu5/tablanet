@@ -13,6 +13,7 @@ public class Card : MonoBehaviour
     public int points {get; private set;}
     public int mults {get; private set;}
     public List<int> value;
+    public int currentValue;
     public int extraPoints = 0;
     public int extraMults = 0;
     public bool selectable = false;
@@ -22,6 +23,7 @@ public class Card : MonoBehaviour
     void Awake()
     {
         card = GetComponentInChildren<SpriteRenderer>();
+        currentValue = -1;
     }
 
     // Update is called once per frame
@@ -75,5 +77,14 @@ public class Card : MonoBehaviour
     public void Score()
     {
         animator.SetTrigger("Scoring");
+    }
+
+    public int GetValue()
+    {
+        if (currentValue == -1)
+        {
+            currentValue = value[0];
+        }
+        return currentValue;
     }
 }
