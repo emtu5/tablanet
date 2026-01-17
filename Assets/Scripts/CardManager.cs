@@ -69,6 +69,7 @@ public class CardManager : MonoBehaviour
             foreach(Card c in row) {
                 points += c.GetValue();
                 mults += c.mults;
+                c.Score();
             }
         }
         //items

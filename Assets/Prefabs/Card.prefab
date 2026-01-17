@@ -49,10 +49,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Card
   cards: {fileID: 100100200, guid: ed8509eb8d98c3043ade5f8d28176403, type: 3}
   value: 
+  currentValue: 0
   extraPoints: 0
   extraMults: 0
   selectable: 0
   selected: 0
+  animator: {fileID: 8220948876671057453}
 --- !u!114 &3577228562320347417
 MonoBehaviour:
   m_ObjectHideFlags: 0
