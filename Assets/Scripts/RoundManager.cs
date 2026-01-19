@@ -73,14 +73,14 @@ public class RoundManager : MonoBehaviour
         if (totl >= scoreReq) // win
         {
             playButton.interactable = false;
-            GameManager.Instance.advanceToNextRound = true;
+            GameManager.Instance.paused = true;
             GameManager.Instance.AdvanceRound();
             winPanel.GetComponentInChildren<TMP_Text>().text = String.Format("Round {0} Complete!", rnd);
             winPanel.SetActive(true);
         }
         else if (handsLeft == 0) // lose
         {
-            GameManager.Instance.advanceToNextRound = true;
+            GameManager.Instance.paused = true;
             GameManager.Instance.LoseGame();
             losePanel.GetComponentInChildren<TMP_Text>().text = String.Format("Game Over! Final Round: {0}", rnd);
             losePanel.SetActive(true);

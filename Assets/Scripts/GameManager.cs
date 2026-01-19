@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     private Vector3 _starting_position;
     public static GameManager Instance;
     public int round;
-    public bool advanceToNextRound = false;
+    public bool paused = false;
     public bool loss = false;
     // TODO: this is magic number shit but I wanna prototype this firstly
     public List<int> scoreRequirement;

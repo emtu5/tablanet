@@ -12,7 +12,7 @@ public class InputHandler : MonoBehaviour
 
     public void OnMouseEnter(InputAction.CallbackContext context)
     {
-        if (GameManager.Instance.advanceToNextRound) return;
+        if (GameManager.Instance.paused) return;
         
         var rayHit = Physics2D.GetRayIntersection(_mainCamera.ScreenPointToRay(context.ReadValue<Vector2>()));
         
@@ -38,6 +38,7 @@ public class InputHandler : MonoBehaviour
 
     public void OnClick(InputAction.CallbackContext context)
     {
+        if (GameManager.Instance.paused) return;
         if (!context.started) return;
         var rayHit = Physics2D.GetRayIntersection(_mainCamera.ScreenPointToRay(context.ReadValue<Vector2>()));
         if (!rayHit.collider) return;
