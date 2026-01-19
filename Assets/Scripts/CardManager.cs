@@ -1,7 +1,9 @@
 using UnityEngine;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 public class CardManager : MonoBehaviour
 {
@@ -57,7 +59,7 @@ public class CardManager : MonoBehaviour
         DealCards();
     }
 
-    public void PlayHand()
+    public async void PlayHand()
     {
         var cards = ValidateHand();
         if (cards == null) return;
@@ -66,10 +68,8 @@ public class CardManager : MonoBehaviour
         points = 0;
         mults = 1;
         foreach(List<Card> row in cards) {
-            foreach(Card c in row) {
-                points += c.GetValue();
-                mults += c.mults;
-                c.Score();
+            foreach(Card c in row) {  
+                await waitCardScore(c);
             }
         }
         //items
@@ -85,6 +85,13 @@ public class CardManager : MonoBehaviour
         roundManager.PlayHand();
         DiscardCards();
         DealCards();
+    }
+
+    public async Task waitCardScore(Card c) {
+        points += c.GetValue();
+        mults += c.mults;
+        c.Score();
+        await Task.Delay(500);
     }
 
     public void ForcePlayHand()

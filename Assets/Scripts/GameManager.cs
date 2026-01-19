@@ -41,16 +41,17 @@ public class GameManager : MonoBehaviour
 
     public void AdvanceRound()
     {
-        round++;
+        GameManager.Instance.round++;
     }
 
     public void LoseGame()
     {
-        round = 1;
+        GameManager.Instance.round = 1;
     }
 
     public void RestartScene()
     {
+        GameManager.Instance.paused = false;
         SceneManager.LoadScene("Assets/Scenes/TestScene.unity");
     }
 
@@ -63,6 +64,7 @@ public class GameManager : MonoBehaviour
 
     public void GoToMenu() {
         SceneManager.LoadScene("Assets/Scenes/Menu.unity");
+        Destroy(gameObject);
     }
 
     public void ArrangeItems()
