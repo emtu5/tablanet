@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
     {
         round = 1;
     }
+
     public void RestartScene()
     {
         SceneManager.LoadScene("Assets/Scenes/TestScene.unity");
@@ -58,6 +59,10 @@ public class GameManager : MonoBehaviour
         Debug.Log("hello");
         SceneManager.LoadScene("Assets/Scenes/Shop.unity");
         Debug.Log("hi");
+    }
+
+    public void GoToMenu() {
+        SceneManager.LoadScene("Assets/Scenes/Menu.unity");
     }
 
     public void ArrangeItems()
