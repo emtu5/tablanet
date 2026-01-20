@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     private Vector3 _starting_position;
     public static GameManager Instance;
     public int round;
+    public int maxRound;
     public bool paused = false;
     public bool loss = false;
     // TODO: this is magic number shit but I wanna prototype this firstly
@@ -17,7 +18,8 @@ public class GameManager : MonoBehaviour
     {
         _starting_position = new Vector3(-8f, 4f, 0f);
         round = 1;
-        scoreRequirement = new List<int>{0, 100, 150, 200, 300, 400, 500, 650, 800, 1000, 1200, 1400, 1600, 1900, 2200, 2500, 999999999};
+        maxRound = 15;
+        scoreRequirement = new List<int>{50, 100, 150, 200, 300, 400, 500, 650, 800, 1000, 1200, 1400, 1600, 1900, 2200, 2500, 999999999};
         if (Instance == null)
         {
             Instance = this;
@@ -73,5 +75,14 @@ public class GameManager : MonoBehaviour
         {
             items[i].transform.position = _starting_position + i * new Vector3(1.2f, 0f, 0f);
         }
+    }
+    
+    public int GetScoreReq() {
+        // Endless
+        if (round > maxRound) {
+            return scoreRequirement[maxRound] + 500 * (round - maxRound) * (round - maxRound + 1) / 2; 
+        }
+        // Normal
+        return scoreRequirement[round];
     }
 }

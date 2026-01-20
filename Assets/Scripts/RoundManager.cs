@@ -31,11 +31,11 @@ public class RoundManager : MonoBehaviour
     {
         // Debug.Log(GameManager.Instance.round);
         rnd = GameManager.Instance.round;
-        round.text = rnd.ToString();
+        round.text = String.Format("{0} / {1}", rnd, GameManager.Instance.maxRound);
         Debug.Log("mrow");
         
         // Debug.Log(round.text);
-        scoreReq = GameManager.Instance.scoreRequirement[rnd];
+        scoreReq = GameManager.Instance.GetScoreReq();
         scoreRequirement.text = scoreReq.ToString();
     }
 
