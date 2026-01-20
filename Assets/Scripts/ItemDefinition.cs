@@ -25,13 +25,13 @@ public class ItemDefinition : MonoBehaviour
         switch (type)
         {
             case ItemData.Rarity.COMMON:
-                return commonItems[UnityEngine.Random.Range(0, commonItems.Count - 1)];
+                return commonItems[UnityEngine.Random.Range(0, commonItems.Count)];
             case ItemData.Rarity.UNCOMMON:
-                return uncommonItems[UnityEngine.Random.Range(0, uncommonItems.Count - 1)];
+                return uncommonItems[UnityEngine.Random.Range(0, uncommonItems.Count)];
             case ItemData.Rarity.RARE:
-                return rareItems[UnityEngine.Random.Range(0, rareItems.Count - 1)];
+                return rareItems[UnityEngine.Random.Range(0, rareItems.Count)];
             default:
-                return commonItems[UnityEngine.Random.Range(0, commonItems.Count - 1)];
+                return commonItems[UnityEngine.Random.Range(0, commonItems.Count)];
         }
     }
 }

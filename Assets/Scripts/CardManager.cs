@@ -59,7 +59,7 @@ public class CardManager : MonoBehaviour
         DealCards();
     }
 
-    public async void PlayHand()
+    public async void PlayHand(bool freeHand = false)
     {
         var cards = ValidateHand();
         if (cards == null) return;
@@ -82,7 +82,7 @@ public class CardManager : MonoBehaviour
         // how do I clean architecture
         roundManager.ShowHandValue(points, mults);
         roundManager.AddToTotal();
-        roundManager.PlayHand();
+        if (!freeHand) roundManager.PlayHand();
         DiscardCards();
         DealCards();
     }

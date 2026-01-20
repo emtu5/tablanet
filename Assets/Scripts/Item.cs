@@ -8,17 +8,23 @@ public class Item : MonoBehaviour
     [SerializeReference]
     [SR]
     public Effect effect;
+    public bool used;
     public void ItemClick()
     {
-        // if (data.type == ItemData.ItemType.PASSIVE) return;
-        Debug.Log(effect.IsValid());
-        if (effect.IsValid()) effect.Perform();
-        Debug.Log("you did click!");
+        if (data.type == ItemData.ItemType.PASSIVE) return;
+        if (!effect.IsValid()) return;
+        // Debug.Log(effect.IsValid());
         if (data.type == ItemData.ItemType.CONSUMABLE)
         {
+            effect.Perform();
             GameManager.Instance.items.Remove(this);
             Destroy(gameObject);
         }
+        if (data.type == ItemData.ItemType.ONCE_PER_ROUND && !used) {
+            effect.Perform();
+            used = true;
+        }
+        Debug.Log("you did click!");
     }
 
     public void ItemScore()

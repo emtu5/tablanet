@@ -15,11 +15,9 @@ public class EffectsManager : MonoBehaviour
         cardManager.DealCards();
     }
 
-    public void Play()
+    public void Play(bool freeHand)
     {
-        cardManager.PlayHand();
-        cardManager.DiscardCards();
-        cardManager.DealCards();
+        cardManager.PlayHand(freeHand);
     }
 
     public void AddMult(Card c, int amount)
@@ -52,5 +50,10 @@ public class EffectsManager : MonoBehaviour
     public List<CardHolder> GetCards()
     {
         return cardManager.cardHolders;
+    }
+
+    public bool IsHandValid()
+    {
+        return cardManager.ValidateHand() != null;
     }
 }

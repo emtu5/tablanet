@@ -13,6 +13,7 @@ public class Shop : MonoBehaviour
     {
         Item i = Instantiate(itemPrefab, gameObject.transform) as Item;
         int choice = UnityEngine.Random.Range(0, 99);
+        Debug.LogFormat("Item chosen: {0}", choice);
         ItemEffect chosen;
         if (choice < 70)
         {

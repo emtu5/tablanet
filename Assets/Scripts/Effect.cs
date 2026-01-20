@@ -3,7 +3,7 @@ using UnityEngine;
 public abstract class Effect
 {
     public EffectsManager toolbox;
-    public bool IsValid()
+    public virtual bool IsValid()
     {
         return true;
     }
