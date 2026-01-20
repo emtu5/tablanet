@@ -3,6 +3,7 @@ using UnityEngine.U2D;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 
 public class Card : MonoBehaviour
 {
@@ -19,6 +20,10 @@ public class Card : MonoBehaviour
     public bool selectable = false;
     public bool selected = false;
     public Animator animator;
+    public SpriteRenderer blue;
+    public SpriteRenderer red;
+    public TMP_Text pt;
+    public TMP_Text mt;
 
     void Awake()
     {
@@ -76,6 +81,8 @@ public class Card : MonoBehaviour
 
     public void Score()
     {
+        pt.text = currentValue.ToString();
+        mt.text = mults.ToString();
         animator.SetTrigger("Scoring");
     }
 
