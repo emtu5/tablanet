@@ -24,6 +24,8 @@ public class Card : MonoBehaviour
     public SpriteRenderer red;
     public TMP_Text pt;
     public TMP_Text mt;
+    public AudioSource score;
+    public AudioSource click;
 
     void Awake()
     {
@@ -64,6 +66,7 @@ public class Card : MonoBehaviour
     public void Select()
     {
         selected = !selected;
+        click.Play();
         if (selected)
         {
             transform.localPosition = new Vector3(0f, 0.2f, 0f);
@@ -81,6 +84,7 @@ public class Card : MonoBehaviour
 
     public void Score()
     {
+        score.Play();
         pt.text = currentValue.ToString();
         mt.text = mults.ToString();
         animator.SetTrigger("Scoring");

@@ -502,6 +502,8 @@ MonoBehaviour:
   red: {fileID: 1082868254857831420}
   pt: {fileID: 4897233620363582238}
   mt: {fileID: 6482124562323322379}
+  score: {fileID: 3317686273749536367}
+  click: {fileID: 5037639154767503567}
 --- !u!114 &3577228562320347417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -631,7 +633,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1836636175
   m_SortingLayer: 2
-  m_SortingOrder: 99
+  m_SortingOrder: -1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.41956475, g: 0.6905709, b: 0.9786501, a: 0}
   m_FlipX: 0
@@ -1037,7 +1039,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1836636175
   m_SortingLayer: 2
-  m_SortingOrder: 99
+  m_SortingOrder: -1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 0.34555805, b: 0.34555805, a: 0}
   m_FlipX: 0
