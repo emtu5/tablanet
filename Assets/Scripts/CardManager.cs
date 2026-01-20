@@ -63,7 +63,9 @@ public class CardManager : MonoBehaviour
     {
         var cards = ValidateHand();
         if (cards == null) return;
-
+        
+        roundManager.playButton.interactable = false;
+        
         // scores;
         points = 0;
         mults = 1;
@@ -85,6 +87,8 @@ public class CardManager : MonoBehaviour
         if (!freeHand) roundManager.PlayHand();
         DiscardCards();
         DealCards();
+
+        roundManager.playButton.interactable = true;
     }
 
     public async Task waitCardScore(Card c) {
