@@ -57,10 +57,11 @@ public class Shop : MonoBehaviour
     {
         for (int i = 0; i < panels.Count; i++)
         {
-            // panels[i].image.sprite = null;
             panels[i].name.text = items[i].data.itemName;
             panels[i].type.text = items[i].data.type.ToString();
             panels[i].description.text = String.Format(items[i].data.description, items[i].effect.GetData());
+            panels[i].backing.sprite = items[i].backing.sprite;
+            panels[i].icon.sprite = items[i].icon.sprite;
             switch (items[i].data.rarity)
             {
                 case ItemData.Rarity.COMMON:
