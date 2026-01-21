@@ -31,7 +31,8 @@ public class Shop : MonoBehaviour
             Debug.Log("RARE");
         }
         i.data = chosen.itemData; i.effect = chosen.effect;
-        i.effect.Init();
+        i.Init();
+        // i.effect.Init();
         return i;
         // GameManager.Instance.items.Add(i);
     }

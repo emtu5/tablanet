@@ -23,6 +23,7 @@ public class ItemData : ScriptableObject
     public string id;
     public string itemName;
     public string description;
+    public Sprite icon;
     // [SerializeReference]
     // [SR]
     // public Effect effect;

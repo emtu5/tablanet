@@ -46,11 +46,7 @@ public class ItemManager : MonoBehaviour
         // CreateItem();
         foreach(Item i in GameManager.Instance.items)
         {
-            Debug.Log("wawa");
-            Debug.Log(effectsManager);
             i.effect.toolbox = effectsManager;
-            Debug.Log("wawaw");
-            Debug.Log(i.effect.toolbox);
         }
     }
 

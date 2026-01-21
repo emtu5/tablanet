@@ -15,5 +15,6 @@ MonoBehaviour:
   type: 2
   rarity: 0
   id: 0
-  itemName: TempDiscard
+  itemName: LightningDiscard
   description: Discard all selected cards.
+  icon: {fileID: 0}
