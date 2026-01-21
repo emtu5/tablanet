@@ -6,9 +6,9 @@ using System.Collections.Generic;
 public class MultRank : Effect
 {
     // [SerializeField]
-    public int extraMult;
-    public string rank;
-    public override void Perform()
+    public int extraMult = 2;
+    // public string rank;
+    public override void Perform(string rank)
     {
         Debug.Log("goober!");
         int multRank = 0;
@@ -39,12 +39,10 @@ public class MultRank : Effect
     public override void Init()
     {
         extraMult = 2;
-        rank = new List<string>{"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"}[UnityEngine.Random.Range(0, 12)];
-        Debug.LogFormat("I'm trying my best, okay? {0}", rank);
     }
 
     public override string GetData()
     {
-        return rank;
+        return new List<string>{"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"}[UnityEngine.Random.Range(0, 12)];;
     }
 }

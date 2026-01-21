@@ -28,7 +28,7 @@ public class PairBonus : Effect
         return ones == 2 && zeroes == 1;
     }
 
-    public override void Perform()
+    public override void Perform(string param)
     {
         toolbox.ScoreMult(6);
     }

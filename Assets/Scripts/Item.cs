@@ -14,6 +14,8 @@ public class Item : MonoBehaviour
     public SpriteRenderer backing;
     public SpriteRenderer icon;
     public SpriteAtlas itemAtlas;
+    public string description;
+    public string parameter = "";
 
     public void ItemClick()
     {
@@ -22,12 +24,12 @@ public class Item : MonoBehaviour
         // Debug.Log(effect.IsValid());
         if (data.type == ItemData.ItemType.CONSUMABLE)
         {
-            effect.Perform();
+            effect.Perform(parameter);
             GameManager.Instance.items.Remove(this);
             Destroy(gameObject);
         }
         if (data.type == ItemData.ItemType.ONCE_PER_ROUND && !used) {
-            effect.Perform();
+            effect.Perform(parameter);
             used = true;
             SetUsed(true);
         }
@@ -38,7 +40,7 @@ public class Item : MonoBehaviour
     {
         if (data.type != ItemData.ItemType.PASSIVE) return;
         Debug.Log(effect.IsValid());
-        if (effect.IsValid()) effect.Perform();
+        if (effect.IsValid()) effect.Perform(parameter);
         Debug.Log("it scored!!!");
     }
 
@@ -50,7 +52,7 @@ public class Item : MonoBehaviour
     }
 
     public string GetTooltip() {
-        return String.Format("{0}\n{1}\n{2}", data.itemName, data.type, data.description);
+        return String.Format("{0}\n{1}\n{2}", data.itemName, data.type, description);
     }
 
     public void Init() {
@@ -58,7 +60,8 @@ public class Item : MonoBehaviour
         backing.sprite = itemAtlas.GetSprite(data.rarity.ToString());
         icon.sprite = itemAtlas.GetSprite(data.itemName);
         effect.Init();
-        data.description = String.Format(data.description, effect.GetData());
+        parameter = effect.GetData();
+        description = String.Format(data.description, parameter);
     }
 
     public void SetUsed(bool isUsed)

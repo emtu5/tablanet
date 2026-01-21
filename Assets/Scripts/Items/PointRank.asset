@@ -17,3 +17,4 @@ MonoBehaviour:
   id: 0
   itemName: PointRank
   description: 'Gives +10 Points for every card with {0} rank. '
+  icon: {fileID: 0}

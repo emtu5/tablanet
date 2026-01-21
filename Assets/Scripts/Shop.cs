@@ -59,7 +59,11 @@ public class Shop : MonoBehaviour
         {
             panels[i].name.text = items[i].data.itemName;
             panels[i].type.text = items[i].data.type.ToString();
-            panels[i].description.text = String.Format(items[i].data.description, items[i].effect.GetData());
+            panels[i].description.text = items[i].description;
+            // Debug.Log(items[i].effect.GetData());
+            // Debug.Log(items[i].data.description);
+            // Debug.Log(String.Format(items[i].data.description, items[i].effect.GetData()));
+            // Debug.Log(panels[i].description.text);
             panels[i].backing.sprite = items[i].backing.sprite;
             panels[i].icon.sprite = items[i].icon.sprite;
             switch (items[i].data.rarity)

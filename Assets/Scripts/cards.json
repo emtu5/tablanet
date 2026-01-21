@@ -8,7 +8,7 @@
         {"id": "6", "name": "6",  "value": [6], "points": 6, "mults": 0},
         {"id": "7", "name": "7",  "value": [7], "points": 7, "mults": 0},
         {"id": "8", "name": "8",  "value": [8], "points": 8, "mults": 0},
-        {"id": "9", "name": "9",  "value": [6, 9], "points": 9, "mults": 0},
+        {"id": "9", "name": "9",  "value": [9, 6], "points": 9, "mults": 0},
         {"id": "10",  "name": "10", "value": [10], "points": 10, "mults": 1},
         {"id": "J", "name": "Jack",  "value": [12], "points": 12, "mults": 1},
         {"id": "Q", "name": "Queen",  "value": [13], "points": 13, "mults": 1},

@@ -17,3 +17,4 @@ MonoBehaviour:
   id: 0
   itemName: MultRank
   description: 'Gives +2 Mult for every card with {0} rank. '
+  icon: {fileID: 0}

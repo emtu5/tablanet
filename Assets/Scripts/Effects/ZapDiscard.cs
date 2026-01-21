@@ -27,7 +27,7 @@ public class ZapDiscard : Effect
         return nonzeroes == 1;
     }
 
-    public override void Perform()
+    public override void Perform(string param)
     {
         toolbox.Discard();
     }

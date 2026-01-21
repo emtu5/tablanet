@@ -7,7 +7,7 @@ public abstract class Effect
     {
         return true;
     }
-    public abstract void Perform();
+    public abstract void Perform(string parameter);
     public virtual void Init()
     {
         

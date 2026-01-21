@@ -25,7 +25,7 @@ public class Tablago : Effect
         }
         return false;
     }
-    public override void Perform()
+    public override void Perform(string param)
     {
         toolbox.DoubleMult();
     }
