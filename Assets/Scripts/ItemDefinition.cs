@@ -2,12 +2,12 @@ using UnityEngine;
 
 using System;
 using System.Collections.Generic;
-using SerializeReferenceEditor;
+// using SerializeReferenceEditor;
 [Serializable]
 public class ItemEffect {
     public ItemData itemData;
     [SerializeReference]
-    [SR]
+    // [SR]
     public Effect effect;
 }
 

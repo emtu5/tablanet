@@ -75,7 +75,14 @@ public class RoundManager : MonoBehaviour
             playButton.interactable = false;
             GameManager.Instance.paused = true;
             GameManager.Instance.AdvanceRound();
-            winPanel.GetComponentInChildren<TMP_Text>().text = String.Format("Round {0} Complete!", rnd);
+            if (rnd == GameManager.Instance.maxRound)
+            {
+                winPanel.GetComponentInChildren<TMP_Text>().text = String.Format("You win!\n But can you go further?", rnd);
+            }
+            else
+            {
+                winPanel.GetComponentInChildren<TMP_Text>().text = String.Format("Round {0} Complete!", rnd);
+            }
             winPanel.SetActive(true);
         }
         else if (handsLeft == 0) // lose

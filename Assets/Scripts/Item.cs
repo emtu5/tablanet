@@ -1,13 +1,13 @@
 using UnityEngine;
 using System;
-using SerializeReferenceEditor;
+// using SerializeReferenceEditor;
 using UnityEngine.U2D;
 
 public class Item : MonoBehaviour
 {
     public ItemData data;
     [SerializeReference]
-    [SR]
+    // [SR]
     public Effect effect;
     public bool used;
 
