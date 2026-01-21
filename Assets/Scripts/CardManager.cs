@@ -13,6 +13,7 @@ public class CardManager : MonoBehaviour
     public RoundManager roundManager;
     public int points;
     public int mults;
+    public int xmults;
     public void DealCards()
     {
         foreach (CardHolder ch in cardHolders)
@@ -69,6 +70,7 @@ public class CardManager : MonoBehaviour
         // scores;
         points = 0;
         mults = 1;
+        xmults = 1;
         foreach(List<Card> row in cards) {
             foreach(Card c in row) {  
                 await waitCardScore(c);
@@ -81,6 +83,7 @@ public class CardManager : MonoBehaviour
             Debug.Log("ITEM!!!");
             i.ItemScore();
         }
+        mults *= xmults;
         // how do I clean architecture
         roundManager.ShowHandValue(points, mults);
         roundManager.AddToTotal();

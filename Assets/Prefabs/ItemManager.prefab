@@ -64,20 +64,26 @@ MonoBehaviour:
   - itemData: {fileID: 11400000, guid: 26e764913f9d17d909fbfe033dfe0cd9, type: 2}
     effect:
       rid: 6894334198178382094
-  - itemData: {fileID: 11400000, guid: 922142f3775355b0c8ed607291b9fbd5, type: 2}
-    effect:
-      rid: 6894334198178382103
   - itemData: {fileID: 11400000, guid: 3e2599c0de8e2afa3899f3d039e7251e, type: 2}
     effect:
       rid: 6894334198178382112
+  - itemData: {fileID: 11400000, guid: 8903f8d41e7c38d518b0a529da2007f2, type: 2}
+    effect:
+      rid: 8683148369960370251
+  - itemData: {fileID: 11400000, guid: 5e0e510775602cf61b44e6500b414434, type: 2}
+    effect:
+      rid: 8683148369960370252
   uncommonItems:
   - itemData: {fileID: 11400000, guid: 5e247722ea6b98a99a1e039c850e721b, type: 2}
     effect:
       rid: 6894334198178382095
-  rareItems:
-  - itemData: {fileID: 11400000, guid: 3e2599c0de8e2afa3899f3d039e7251e, type: 2}
+  - itemData: {fileID: 11400000, guid: 922142f3775355b0c8ed607291b9fbd5, type: 2}
     effect:
-      rid: 8683148001768374349
+      rid: 8683148369960370249
+  rareItems:
+  - itemData: {fileID: 11400000, guid: 679a88a56eff198efb9fe3e1b2aeb65b, type: 2}
+    effect:
+      rid: 8683148369960370250
   references:
     version: 2
     RefIds:
@@ -91,19 +97,25 @@ MonoBehaviour:
       type: {class: ExtraHand, ns: , asm: Assembly-CSharp}
       data:
         toolbox: {fileID: 0}
-    - rid: 6894334198178382103
-      type: {class: TempDiscard, ns: , asm: Assembly-CSharp}
-      data:
-        toolbox: {fileID: 0}
     - rid: 6894334198178382112
       type: {class: MultRank, ns: , asm: Assembly-CSharp}
       data:
         toolbox: {fileID: 0}
         extraMult: 0
         rank: 
-    - rid: 8683148001768374349
-      type: {class: MultRank, ns: , asm: Assembly-CSharp}
+    - rid: 8683148369960370249
+      type: {class: TempDiscard, ns: , asm: Assembly-CSharp}
       data:
         toolbox: {fileID: 0}
-        extraMult: 0
-        rank: 
+    - rid: 8683148369960370250
+      type: {class: Tablago, ns: , asm: Assembly-CSharp}
+      data:
+        toolbox: {fileID: 0}
+    - rid: 8683148369960370251
+      type: {class: PairBonus, ns: , asm: Assembly-CSharp}
+      data:
+        toolbox: {fileID: 0}
+    - rid: 8683148369960370252
+      type: {class: ZapDiscard, ns: , asm: Assembly-CSharp}
+      data:
+        toolbox: {fileID: 0}

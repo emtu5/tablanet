@@ -56,4 +56,9 @@ public class EffectsManager : MonoBehaviour
     {
         return cardManager.ValidateHand() != null;
     }
+
+    public void DoubleMult()
+    {
+        cardManager.xmults = 2;
+    }
 }
