@@ -47,6 +47,7 @@ public class ItemManager : MonoBehaviour
         foreach(Item i in GameManager.Instance.items)
         {
             i.effect.toolbox = effectsManager;
+           i.SetUsed(false);
         }
     }
 

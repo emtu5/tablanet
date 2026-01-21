@@ -29,6 +29,7 @@ public class Item : MonoBehaviour
         if (data.type == ItemData.ItemType.ONCE_PER_ROUND && !used) {
             effect.Perform();
             used = true;
+            SetUsed(true);
         }
         Debug.Log("you did click!");
     }
@@ -58,5 +59,20 @@ public class Item : MonoBehaviour
         icon.sprite = itemAtlas.GetSprite(data.itemName);
         effect.Init();
         data.description = String.Format(data.description, effect.GetData());
+    }
+
+    public void SetUsed(bool isUsed)
+    {
+        used = isUsed;
+        if (used)
+        {
+            backing.color = new Color(0.5f, 0.5f, 0.5f);
+            icon.color = new Color(0.5f, 0.5f, 0.5f);
+        }
+        else
+        {
+            backing.color = new Color(1f, 1f, 1f);
+            icon.color = new Color(1f, 1f, 1f);
+        }
     }
 }

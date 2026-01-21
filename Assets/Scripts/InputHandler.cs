@@ -50,7 +50,9 @@ public class InputHandler : MonoBehaviour
         }
         else if (_prevHover)
         {
-            _prevHover.GetComponent<SpriteRenderer>().color = Color.white;
+            if (_prevHover.parent.GetComponent<Card>() != null) {
+                _prevHover.GetComponent<SpriteRenderer>().color = Color.white;
+            }
             tooltip.HideTooltip();
         }
     }
