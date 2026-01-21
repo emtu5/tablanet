@@ -18,6 +18,7 @@ public class ZapDiscard : Effect
                 counts[i]++;
 ;            }
         }
+        Debug.LogFormat("{0} {1} {2}", counts[0], counts[1], counts[2]);
         int nonzeroes = 0;
         foreach (int n in counts)
         {

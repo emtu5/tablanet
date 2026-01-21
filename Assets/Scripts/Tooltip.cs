@@ -23,7 +23,7 @@ public class Tooltip : MonoBehaviour
 
     private void Update() {
         Vector2 anchoredPosition = Input.mousePosition / canvasRectTransform.localScale.x;
-        transform.GetComponent<RectTransform>().anchoredPosition = anchoredPosition;
+        transform.GetComponent<RectTransform>().anchoredPosition = anchoredPosition + new Vector2(1f, 1f);
     }
 
     private void Start() {

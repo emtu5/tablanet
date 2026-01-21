@@ -18,11 +18,13 @@ public class PairBonus : Effect
 ;            }
         }
         int ones = 0, zeroes = 0;
+        Debug.LogFormat("{0} {1} {2}", counts[0], counts[1], counts[2]);
         foreach (int n in counts)
         {
             if (n == 1) ones++;
             if (n == 0) zeroes++;
         }
+        // Debug.LogFormat("{0} {1} {2}", counts[0], counts[1], counts[2]);
         return ones == 2 && zeroes == 1;
     }
 

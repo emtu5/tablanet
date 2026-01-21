@@ -18,6 +18,7 @@ public class Tablago : Effect
                 counts[i]++
 ;            }
         }
+        Debug.LogFormat("{0} {1} {2}", counts[0], counts[1], counts[2]);
         for (int i = 0; i < cards.Count; i++)
         {
             if (counts[i] == cards[i].cardSlots.Count) return true;
