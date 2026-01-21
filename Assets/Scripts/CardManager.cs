@@ -14,6 +14,7 @@ public class CardManager : MonoBehaviour
     public int points;
     public int mults;
     public int xmults;
+    public AudioSource deal;
     public void DealCards()
     {
         foreach (CardHolder ch in cardHolders)
@@ -30,6 +31,7 @@ public class CardManager : MonoBehaviour
                 dealtCard.transform.localPosition = new Vector3(0, 0, 0);
             }
         }
+        deal.Play();
     }
     
     public void DiscardCards() 
@@ -47,6 +49,7 @@ public class CardManager : MonoBehaviour
                 card.transform.localPosition = new Vector3(0, 0, 0);
             }
         }
+        deal.mute = false;
     }
 
     void Start()
@@ -57,7 +60,9 @@ public class CardManager : MonoBehaviour
             ch.FillSlots();
         }
         deck.CreateDeck();
+        deal.mute = true;
         DealCards();
+        // deal.mute = false;
     }
 
     public async void PlayHand(bool freeHand = false)
