@@ -77,10 +77,10 @@ public class Card : MonoBehaviour
         }
     }
 
-    public void Gwah()
-    {
-        Debug.Log("Gwah");
-    }
+    // public void Gwah()
+    // {
+    //     Debug.Log("Gwah");
+    // }
 
     public void Score()
     {
@@ -97,5 +97,9 @@ public class Card : MonoBehaviour
             currentValue = value[0];
         }
         return currentValue;
+    }
+
+    public string GetTooltip() {
+        return String.Format("{0}{1}, Values: [{2}]", rank, suit, String.Join(", ", value));
     }
 }

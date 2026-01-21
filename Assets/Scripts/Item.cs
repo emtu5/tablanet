@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using System;
 using SerializeReferenceEditor;
 
 public class Item : MonoBehaviour
@@ -42,14 +42,7 @@ public class Item : MonoBehaviour
         // if (effect != null) effect.Init();
     }
 
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public string GetTooltip() {
+        return String.Format("{0}\n{1}", data.itemName, data.description);
     }
 }
